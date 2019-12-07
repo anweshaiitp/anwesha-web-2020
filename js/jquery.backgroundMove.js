@@ -19,7 +19,7 @@ $('element').backgroundMove();
                       var pageX = e.pageX - ($(window).width() / 2);
                       var pageY = e.pageY - ($(window).height() / 2);
                       var newvalueX = width * pageX * -1 - 25 - ($(window).width() / 4);
-                      var newvalueY = height * pageY * -1 - 50 - 1.3*($(window).height());
+                      var newvalueY = height * pageY * -1 - 50 - 1*($(window).height());
                       $this.css("background-position", newvalueX+"px     "+newvalueY+"px");
             });
 
