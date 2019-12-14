@@ -1121,9 +1121,9 @@ ul.dropdown li a:after {
 
 .single-portfolio-item img {
 	border-radius: 15px;
-	/* /* height: 100%; */
+	height: 100%;
 	width: 100%;
-	/* object-fit: contain; */
+	object-fit: cover;
 }
 
 /*6.2 Portfolio Item*/
