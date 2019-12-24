@@ -1649,8 +1649,9 @@ ul.dropdown li a:after {
 	/* background-image: url('img/completeteam.jpg'); */
 	background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('img/completeteam.jpg');
 	/* background-size: 120%; */
-	background-position:center;
-}
+	background-position:center;}
+
+
 
 #footer-fixed {
 	width: 100%;
@@ -2605,7 +2606,7 @@ footer p {
 /*17.1 Portfolio Banner*/
 .portfolio-hero-banner {
 	background-color: #fff;
-	background-image: url(img/portfolio/portfolio-bg.jpg);
+	
 	width: 100%;
 	height: 50vh;
 	background-position: center;
@@ -2639,10 +2640,10 @@ footer p {
 }
 
 .portfolio-hero-text h1 {
-	color: #fff;
-	text-transform: capitalize;
-	font-weight: 700;
-	font-size: 40px;
+  color: #fff;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 40px;
 }
 
 .portfolio-hero-text p {
