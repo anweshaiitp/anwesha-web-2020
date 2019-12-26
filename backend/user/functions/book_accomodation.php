@@ -5,26 +5,26 @@
         $message=array();
 
         // Extract datas
-        $celestaid=escape($_POST["celestaid"]);
+        $anweshaid=escape($_POST["anweshaid"]);
         $access_token=escape($_POST["access_token"]);
         $no_of_days=1;
         $day1=0;
         $day2=0;
         $day3=0;
 
-        $user_data=userInfo($celestaid);
+        $user_data=userInfo($anweshaid);
 
         if($user_data==false){
             $response['status']=404;
-            $message[]="Celestaid does not exist";
+            $message[]="Anwesha Id does not exist";
         }else{
             if($user_data['access_token']!=$access_token){
                 $response['status']=401;
                 $message[]="Unauthorized access";
             }else{
-                if(userExistsInAccommodation($celestaid)){
+                if(userExistsInAccommodation($anweshaid)){
                     $response['status']=208;
-                    $message[]="Celesta id has already booked accommodation";
+                    $message[]="Anwesha Id has already booked accommodation";
                 }else{
                     if(isset($_POST['day1'])){
                         $day1=1;
@@ -53,16 +53,16 @@
                     $qrcode=$user_data['qrcode'];
                     $email=$user_data['email'];
 
-                    $sql="INSERT INTO accommodation(celestaid,names,phone,gender,booking_date,no_of_days,day1,day2,day3,email) VALUES('$celestaid','$name','$phone','$gender','$date','$no_of_days','$day1','$day2','$day3','$email')";
+                    $sql="INSERT INTO accommodation(anweshaid,names,phone,gender,booking_date,no_of_days,day1,day2,day3,email) VALUES('$anweshaid','$name','$phone','$gender','$date','$no_of_days','$day1','$day2','$day3','$email')";
                     $result=query($sql);
                     confirm($result);
 
                     $mssg="<p> Hi $name, you have successfully booked your accommodation for $no_of_days days.<br>
-                        Your celestaid is:$celestaid<br>
+                        Your anweshaid is:$anweshaid<br>
                         <a href='$qrcode'><img src='$qrcode' alt='Your qr code should be shown here.' style='height:400px;width:400px'/></a>
                     </p>";
-                    $subject="Celesta2k19 Accommodation Booking";
-                    $headers="From: celesta19iitp@gmail.com";
+                    $subject="Anwesha2k20 Accommodation Booking";
+                    $headers="From: anwesha2k20iitp@gmail.com";
                     send_email($email,$subject,$mssg,$headers);
                     $response['status']=202;
                     $message[]="Successfully booked your accommodation for $no_of_days days.";
@@ -75,8 +75,8 @@
     }
 
     // Function to get user info
-    function userInfo($celestaid){
-        $sql="SELECT access_token, gender, first_name, last_name, phone,email, qrcode FROM users where celestaid='$celestaid'";
+    function userInfo($anweshaid){
+        $sql="SELECT access_token, gender, first_name, last_name, phone,email, qrcode FROM users where anweshaid='$anweshaid'";
         $result=query($sql);
         confirm($result);
         if(row_count($result)==1){
@@ -87,8 +87,8 @@
     }
 
     // TO check if a user is present in user table or not
-    function userExistsInAccommodation($celestaid){
-        $sql="SELECT id from accommodation WHERE celestaid='$celestaid'";
+    function userExistsInAccommodation($anweshaid){
+        $sql="SELECT id from accommodation WHERE anweshaid='$anweshaid'";
         $result=query($sql);
         confirm($result);
         if(row_count($result)==1){
