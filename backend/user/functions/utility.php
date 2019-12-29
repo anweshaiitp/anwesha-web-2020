@@ -12,8 +12,8 @@ function send_email($email,$subject,$msg,$headers){
 	$mail->isSMTP();                                      // Set mailer to use SMTP
 	$mail->Host = 'tls://smtp.gmail.com';  // Specify main and backup SMTP servers
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
-	$mail->Username = "email";                 // SMTP username
-	$mail->Password = "password"; 
+	$mail->Username = "dscappsocietyiitp@gmail.com";                 // SMTP username
+	$mail->Password = ""; 
 	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 	$mail->Port = 587;                                       // TCP port to connect to
 

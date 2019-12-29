@@ -2,12 +2,12 @@
     include("./functions/init.php");
 
     $loggedIn = logged_in();
-    $celestaid=""; $access_token="";
+    $anweshaid=""; $access_token="";
     if($loggedIn){
-      $celestaid = $_SESSION['celestaid'];
+      $anweshaid = $_SESSION['anweshaid'];
       $access_token=$_SESSION['access_token'];
     } else {
-		redirect('./login.php');
+		redirect('./signup.php');
 	}
 ?>
 
@@ -33,6 +33,7 @@
   <div id="login" class="login">
     <div class="login-icon-field">
       <div class="login-icon">
+	  <?php display_message()?>
         <img src="./images/logo_favi.png" alt="Anwesha" width="100%">
         <h3 style="text-align: center;">Accomadation Portal for Anwesha2k20</h3>
       </div>
@@ -50,11 +51,12 @@
 				<span class="focus-input100" data-placeholder="&#xe82a;"></span>    
 			</div>
 			
-			<input type="hidden" value="<?php echo $celestaid?>" name="celestaid" id="celestaid">
+			<input type="hidden" value="<?php echo $anweshaid?>" name="anweshaid" id="anweshaid">
 			<input type="hidden" value="<?php echo $access_token?>" name="access_token" id="access_token">
+			<p id="responses"></p>
 
 			<div class=" row">
-				<button id="login-button"  type="submit">
+				<button id="login-button">
 					Book Accommodation &nbsp;&nbsp;<span class="spinner-border spinner-border-sm spinner" style="display: none"></span>
 				</button>
 			</div>
@@ -76,8 +78,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 	<script>
-		var accoForm = document.querySelector('#accoForm');
-		accoForm.addEventListener('submit', async (e) => {
+		var accoForm = document.querySelector('#login-button');
+		accoForm.addEventListener('click', async (e) => {
+		console.log("hi");
 		e.preventDefault();
 		let spinner = document.querySelector(".spinner");
       	spinner.style.display = "inline-block";
@@ -113,12 +116,13 @@
 			method: "post"
 			}
 		);
-		res = await res.json();
+		const result = await res.json();
 		spinner.style.display = "none";
 		let htmlData='';
+		console.log("there");
 		var responses=document.querySelector('#responses');
-		if(res.status === 404){
-			res.message.forEach((msg) => {
+		if(result.status === 404){
+			result.message.forEach((msg) => {
 				htmlData+=`
 				<div class="alert alert-danger alert-dismissible fade show" role="alert">
 					 ${msg}
@@ -129,8 +133,8 @@
 				`;
 			})
 		}
-		else if(res.status === 401){
-			res.message.forEach((msg) => {
+		else if(result.status === 401){
+			result.message.forEach((msg) => {
 				htmlData+=`
 				<div class="alert alert-danger alert-dismissible fade show" role="alert">
 					 ${msg}
@@ -141,8 +145,8 @@
 				`;
 			})
 		}
-		else if(res.status === 208){
-			res.message.forEach((msg) => {
+		else if(result.status === 208){
+			result.message.forEach((msg) => {
 				htmlData+=`
 				<div class="alert alert-warning alert-dismissible fade show" role="alert">
 					 ${msg}
@@ -153,8 +157,8 @@
 				`;
 			})
 		}
-		else if(res.status === 202){
-			res.message.forEach((msg) => {
+		else if(result.status === 202){
+			result.message.forEach((msg) => {
 				htmlData+=`
 				<div class="alert alert-success alert-dismissible fade show" role="alert">
 					 ${msg}
