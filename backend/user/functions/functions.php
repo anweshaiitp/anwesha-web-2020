@@ -928,12 +928,13 @@ function conf_pass_change(){
 	}	
 }
 
-// if(row_count($result2)){
-// 	set_message("<p class='bg-danger'>Your password has been successfully reset.</p>");
-// 	redirect("display.php");
-// 	return json_encode("201");//Failed
-// }else{
-// 	set_message("<p class='bg-danger'>Your password was not able to reset.</p>");
-// 	redirect("display.php");
-// 	return json_encode("201");//Failed
-// }
+function userInAccommodation($anweshaid){
+	$sql="SELECT id from accommodation WHERE anweshaid='$anweshaid'";
+	$result=query($sql);
+	confirm($result);
+	if(row_count($result)==1){
+		return true;
+	}else{
+		return false;
+	}
+}
