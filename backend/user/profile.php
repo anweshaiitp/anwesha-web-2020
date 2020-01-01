@@ -1,5 +1,6 @@
 <?php 
-    include("functions/init.php"); 
+	include("functions/init.php"); 
+	// include("functions/book_accommodation.php");
     if(!logged_in()){
         redirect("signup.php");
     }
@@ -18,7 +19,8 @@
 			$rank = $rank +1;
 		}
 	}
-    $profile = user_details($anweshaid);
+	$profile = user_details($anweshaid);
+	$registration=userInAccommodation($anweshaid);
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +37,11 @@
 	<link rel="stylesheet" href="./css/profile.css">
 	<link href="./images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 	<link href="./images/favicon.ico" rel="apple-touch-icon">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -55,6 +62,11 @@
 					<a href="./assets/qrcodes/<?php echo $anweshaid; ?>.png" download="<?php echo $anweshaid;?>.png" target="_blank" style="text-decoration:none;color:#fff;">
 					DOWNLOAD QR CODE</a>
 					</h2>
+					<?php if(!$registration){?> 
+					<button type="button" class="btn btn-info">Book Accommodation</button>
+					<?php }else{ ?>
+						Already booked accommodation.Check mail for further details
+					<?php } ?> 
 				</h1>
 			</section>
 			<?php if($profile['isCA']){ ?>

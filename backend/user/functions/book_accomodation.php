@@ -3,7 +3,6 @@
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         $response=array();
         $message=array();
-
         // Extract datas
         $anweshaid=escape($_POST["anweshaid"]);
         $access_token=escape($_POST["access_token"]);

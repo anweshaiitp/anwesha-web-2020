@@ -33,7 +33,7 @@ if (logged_in()) {
           <input class="not-radio" id="anweshaid" name="anweshaid" required="required" placeholder="Anwesha ID" />
           <input class="not-radio" type="password" id="password" name="password" required="required" placeholder="Password" /><br/>
           <!-- <a href="#" color>Forgot your password?</a> -->
-          <button type="submit" name="login" id="login" >Sign In</button><br>
+          <button type="submit" name="login" id="login" value="miss_u_a_lot_atreyee">Sign In</button><br>
           <a href="./resend_alink.php"><span class="btn">Resend Activation Link</span></a><br>
           <a href="./password.php"><span class="btn">Forgot Password</span></a><br>
           <p style="margin:0;">Don't have an account?</p>
