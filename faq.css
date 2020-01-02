@@ -381,10 +381,10 @@ a {
   color: #48b1bf;
   background-color:#EFE9FF;
   text-decoration: none;
-  font-family:"Adelle Regular";
+  font-family:'Nunito',sans-serif;
 }
 @font-face {
-  font-family:"Adelle Regular";
+  font-family:'nunito',sans-serif;
 src:url("adelleregularwebfont-bg.png") format("png"),url("adelleregularwebfont-thumb.png") format("png"),url("adelleregularwebfont.eot") format("eot"),url("adelleregularwebfont.png") format("png")
 ,url("adelleregularwebfont.ttf")format("ttf"),url("adelleregularwebfont.woff") format("woff") ;
 font-weight:normal;
@@ -407,14 +407,9 @@ Main components
   /*-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;*/
   font-size: 3cm;
-  
-  font-family:"Vintage Warehouse";
+  font-family:'Nunito', sans-serif;
   letter-spacing: 5px;
   line-height:50px;
-  font-style: italic;
-  text-shadow: 6px 6px black;
-
-
 }
 
 .faq-content {
@@ -422,7 +417,7 @@ Main components
 }
 
 @font-face {
-  font-family:"Vintage Warehouse";
+  font-family:"Zelda";
   src:url("Vintage_Warehouse.eot?") format("eot"),url("Vintage_Warehouse.woff") format("woff"),url("Vintage_Warehouse.ttf") format("truetype"),url("Vintage_Warehouse.svg#VintageWarehouse") format("svg");
   font-weight:normal;
   font-style:normal;}
@@ -435,8 +430,6 @@ Main components
     font-size: 150px;
    /* font-size: 2.25rem;*/
    font-weight: 300;
-   
-
 
   }
 }
@@ -473,8 +466,10 @@ p{
   display: block;
   overflow: hidden;
   height: 50px;
+  width: 280px;
+  float: right;
   line-height: 50px;
-  padding: 0 28px 0 16px;
+  padding: 0 18px 0 16px;
   background-color: #7A89C2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -534,8 +529,8 @@ p{
 @media only screen and (min-width: 1024px) {
   .categories {
     position: absolute;
-    top: 0;
-    left: 0 !important;
+    top: 0 ;
+    left: 0 ;
 	padding-left: 0;
     width: 200px;
     z-index: 2;
@@ -547,7 +542,7 @@ p{
     right: auto;
     left: 0;
     height: 100%;
-    width: 3px;
+    width: 10px;
     background-color: #1F2429;
     opacity: 0;
     -webkit-transition: opacity 0.2s;
@@ -812,7 +807,7 @@ p{
   line-height: 1.4;
   color: #eee;
 
-  font-family:"Adelle Regular";
+  font-family:"Nunito" sans-serif;
 }
 @media only screen and (min-width: 768px) {
   .faq-content {
