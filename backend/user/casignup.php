@@ -62,7 +62,7 @@
     <div class="call-to-action">
     <p>Password must contain an uppercase, a lowercase, a number and minimum 8 characters.</p><br>
       <button id="login-button" type="submit">Sign Up</button>
-      <p>Already have an account ? <a href="./signup.php">Sign in now !!</a></p>
+      <p>Already have an account ? <a href="./signin.php">Sign in now !!</a></p>
     </div>
   </form>
   </div>

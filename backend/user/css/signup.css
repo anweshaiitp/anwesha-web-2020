@@ -9,7 +9,7 @@ html, body {
 }
 
 .container {
-  padding: 1px 0;
+  padding: 1px 20px;
   min-height: 100vh;
   /* height: 100%; */
   width: 100%;
@@ -21,21 +21,22 @@ html, body {
 }
 
 .login {
-  max-width: 350px;
+  max-width: 520px;
   min-height: 500px;
   margin: 30px auto;
-  padding: 1px 20px;
+  padding: 1px 30px;
   background-color: rgba(10,10,10,.68);
 }
 
 .login-icon-field {
   /* height: 250px; */
-  width: 100%;
+  width: 60%;
+  margin: auto;
   /*background-color: red;*/
 }
 
 .login-icon {
-  margin: 50px 65px;
+  /* margin: 50px 65px; */
 }
 
 .login-form {

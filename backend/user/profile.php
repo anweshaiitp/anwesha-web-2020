@@ -2,7 +2,7 @@
 	include("functions/init.php"); 
 	// include("functions/book_accommodation.php");
     if(!logged_in()){
-        redirect("signup.php");
+        redirect("signin.php");
     }
     $anweshaid; $imgsrc;$rank = 1;$hpoint;
     if(isset($_SESSION['anweshaid'])){
@@ -63,7 +63,7 @@
 					DOWNLOAD QR CODE</a>
 					</h2>
 					<?php if(!$registration){?> 
-					<button type="button" class="btn btn-info">Book Accommodation</button>
+					<a class="btn btn-info" href="./accommodation.php">Book Accommodation</a>
 					<?php }else{ ?>
 						Already booked accommodation.Check mail for further details
 					<?php } ?> 
@@ -112,7 +112,7 @@
 				<?php foreach($data as $ca){ ?>
 				<dt>
 					<article class="progress">
-						<section class="progress-bar" style="width: <?php echo ($ca['score']*100)/$hpoint;?>%;"></section>
+						<section class="progress-bar" style="width: <?php echo ($ca['score']*100)/$hpoint;?>"></section>
 					</article>
 				</dt>
 				<dd>

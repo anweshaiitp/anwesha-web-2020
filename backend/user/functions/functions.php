@@ -139,12 +139,12 @@ function login_signup(){
 	 		$errors[]="Your password fields didn't match";
 		 }
 
-		$uppercase = preg_match('@[A-Z]@', $password);
-		$lowercase = preg_match('@[a-z]@', $password);
-		$number    = preg_match('@[0-9]@', $password);
+		// $uppercase = preg_match('@[A-Z]@', $password);
+		// $lowercase = preg_match('@[a-z]@', $password);
+		// $number    = preg_match('@[0-9]@', $password);
 
-		if(!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
-			$errors[]="Your password must be at least 8 character length. Must contain at least one capital letter, 1 number, 1 small letter.";
+		if(strlen($password) < 6) {
+			$errors[]="Your password must be at least 6 character length.";
 		}
 
 		 if(strlen($referral_id)!=8){
@@ -487,7 +487,7 @@ function resendActivationLink(){
 					$response['status']=200;
 					set_message("<p class='bg-success'> Activation link has successfully been sent to your account.</p>");
 					echo json_encode($response['message'][0]);
-					redirect("signup.php");
+					redirect("signin.php");
 				}else{
 					$message[]="Please try again";
 					$response['status']=208;					

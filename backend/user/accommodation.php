@@ -7,7 +7,7 @@
       $anweshaid = $_SESSION['anweshaid'];
       $access_token=$_SESSION['access_token'];
     } else {
-		redirect('./signup.php');
+		redirect('./signin.php');
 	}
 ?>
 

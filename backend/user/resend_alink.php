@@ -38,7 +38,7 @@
         </div>
         <div class="call-to-action">
             <button  type="submit">Resend Link</button>
-            <p>Already have activation link ? <a href="./signup.php">Sign in now !!</a></p>
+            <p>Already have activation link ? <a href="./signin.php">Sign in now !!</a></p>
         </div>
     </form>
   </div>
