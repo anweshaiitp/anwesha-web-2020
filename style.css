@@ -1212,8 +1212,8 @@ ul.dropdown li a:after {
 	border-radius: 50%;
 	line-height: 40px;
 	text-align: center;
-	border: 2px solid #75DDED;
-	background: linear-gradient(238.45deg, #42D2FF 3.32%, #49e513 98.6%);
+	border: 2px solid black;
+	background: black;
 	background-clip: border-box;
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
@@ -1231,8 +1231,8 @@ ul.dropdown li a:after {
 	border-radius: 50%;
 	line-height: 40px;
 	text-align: center;
-	border: solid 2px #75DDED;
-	background: linear-gradient(238.45deg, #42D2FF 3.32%, #49e513 98.6%);
+	border: solid 2px black;
+	background: black;
 	background-clip: border-box;
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
