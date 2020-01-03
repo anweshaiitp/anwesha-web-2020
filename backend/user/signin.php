@@ -37,7 +37,7 @@ if (logged_in()) {
           <a href="./resend_alink.php"><span class="btn">Resend Activation Link</span></a><br>
           <a href="./password.php"><span class="btn">Forgot Password</span></a><br>
           <p style="margin:0;">Don't have an account?</p>
-          <p style="margin:0;"><a href="./casignup.php" style="color: #fff;">SignUp now !!</a></p>
+          <p style="margin:0;"><a href="./casignin.php" style="color: #fff;">SignUp now !!</a></p>
         </form>
       </div>
       <!-- <div class="back">
@@ -65,7 +65,7 @@ if (logged_in()) {
         <li><a class="indigo center" href="../../">Home</a></li>
         <li><a class="blue center" href="../../ca/ca.php">Campus Ambassador</a></li> -->
         <!-- <li><a class="red center" href="../../sponsors.html">Sponsors</a></li> -->
-        <!-- <li><a class="red center" href="./signup.php">Login/Signup</a></li>
+        <!-- <li><a class="red center" href="./signin.php">Login/Signup</a></li>
     </ul>
   </div> -->
 </body>
