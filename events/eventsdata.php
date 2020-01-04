@@ -89,84 +89,68 @@
 
   <div class="waveWrapper waveAnimation">
     <div class="waveWrapperInner bgTop">
-      <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+      <!-- <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div> -->
     </div>
     <div class="waveWrapperInner bgMiddle">
-      <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+      <!-- <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div> -->
     </div>
     <div class="waveWrapperInner bgBottom">
-      <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+      <!-- <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div> -->
     </div>
   </div>
-
-
   <!--==========================
       Gallery Section
     ============================-->
-  <div class="page">
-    <span class="menu_toggle">
-      <i class="menu_open fa fa-bars fa-lg"></i>
-      <i class="menu_close fa fa-times fa-lg"></i>
-    </span>
-    <ul class="menu_items">
-      <li><a href="../"><i class="icon fa fa-home fa-2x"></i> Home</a></li>
-      <li><a href="../events.php"><i class="icon fa fa-heart fa-2x"></i> Events</a></li>
-      <li><a href="../team.php"><i class="icon fa fa-users fa-2x"></i> Team</a></li>
-    </ul>
-    <main class="content">
-      <div class="content_inner">
-        <section id="gallery" class="section-bg">
-          <div class="container">
-            <header class="section-header sec_head">
-              <h3 class="section-title">Celesta Events</h3>
-            </header>
 
-            <div class="row">
-              <div class="col-lg-12">
-                <ul id="gallery-flters">
-                  <li data-filter="*" class="filter-active">All</li>
-                  <?php echo $filters ?>
-                </ul>
+  <section id="gallery" class="section-bg">
+    <div class="container">
+      <header class="section-header sec_head">
+        <h3 class="section-title">Celesta Events</h3>
+      </header>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <ul id="gallery-flters">
+            <li data-filter="*" class="filter-active">All</li>
+            <?php echo $filters ?>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row gallery-container">
+
+        <?php foreach($events as $e) { ?>
+          <div class="col-lg-4 col-md-6 gallery-item filter-<?php echo $e['ev_club']?>" data-tilt>
+            <div class="gallery-wrap">
+              <a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">
+              <figure>
+                <img src="<?php echo $e['ev_poster_url']?>" class="img-fluid" alt="" />
+                <a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>" data-lightbox="gallery" data-title="Club 1" title="Preview"></a>
+              </figure>
+              </a>
+
+              <div class="gallery-info">
+                <h4><?php echo $e['ev_name']?></h4>
+                <p>
+                  <a class="btn" style="color: #fff; background: rgb(148,0,211,.8); font-size: 12px" href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">More Details</a> 
+                  <?php if($loggedIn){?>
+                    <?php if (!$e['is_team_event']) { ?>
+                      <a class="btn btn-success" style="color: #fff; background: rgb(139,0,139,.8); font-size: 12px" href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">Register Event</a>
+                    <?php } else { ?>
+                      <a class="btn btn-success" style="color: #fff; background: rgb(139,0,139,.8); font-size: 12px" href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">Register Team Event</a>
+                    <?php } ?>
+                  <?php }else{?>
+                    <a class="btn" style="color: #fff; background: 	rgb(139,0,139,.8); font-size: 12px" href="./../backend/user/login.php?redirecteventsdata=<?php echo $param?>">Login to Register</a>
+                  <?php }?>
+                </p>
               </div>
             </div>
-
-            <div class="row gallery-container">
-
-              <?php foreach($events as $e) { ?>
-                <div class="col-lg-4 col-md-6 gallery-item filter-<?php echo $e['ev_club']?>" data-tilt>
-                  <div class="gallery-wrap">
-                    <a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">
-                    <figure>
-                      <img src="<?php echo $e['ev_poster_url']?>" class="img-fluid" alt="" />
-                      <a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>" data-lightbox="gallery" data-title="Club 1" title="Preview"></a>
-                    </figure>
-                    </a>
-
-                    <div class="gallery-info">
-                      <h4><?php echo $e['ev_name']?></h4>
-                      <p>
-                        <a class="btn" style="color: #fff; background: rgb(148,0,211,.8); font-size: 12px" href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">More Details</a> 
-                        <?php if($loggedIn){?>
-                          <?php if (!$e['is_team_event']) { ?>
-                            <a class="btn btn-success" style="color: #fff; background: rgb(139,0,139,.8); font-size: 12px" href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">Register Event</a>
-                          <?php } else { ?>
-                            <a class="btn btn-success" style="color: #fff; background: rgb(139,0,139,.8); font-size: 12px" href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">Register Team Event</a>
-                          <?php } ?>
-                        <?php }else{?>
-                          <a class="btn" style="color: #fff; background: 	rgb(139,0,139,.8); font-size: 12px" href="./../backend/user/login.php?redirecteventsdata=<?php echo $param?>">Login to Register</a>
-                        <?php }?>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              <?php } ?>
-
-            </div>
           </div>
-        </section>
+        <?php } ?>
+
       </div>
-    </main>
-</div>
+    </div>
+  </section>
 
   <!-- tilt js -->
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>

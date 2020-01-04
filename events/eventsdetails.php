@@ -81,110 +81,95 @@
 
   <div class="waveWrapper waveAnimation">
     <div class="waveWrapperInner bgTop">
-      <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+      <!-- <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div> -->
     </div>
     <div class="waveWrapperInner bgMiddle">
-      <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+      <!-- <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div> -->
     </div>
     <div class="waveWrapperInner bgBottom">
-      <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+      <!-- <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div> -->
     </div>
   </div>
 
   <!--==========================
       Gallery Section
     ============================-->
-  <div class="page">
-    <span class="menu_toggle">
-      <i class="menu_open fa fa-bars fa-lg"></i>
-      <i class="menu_close fa fa-times fa-lg"></i>
-    </span>
-    <ul class="menu_items">
-      <li><a href="../index.php"><i class="icon fa fa-home fa-2x"></i> Home</a></li>
-      <li><a href="../events.php"><i class="icon fa fa-heart fa-2x"></i> Events</a></li>
-      <li><a href="../team.php"><i class="icon fa fa-users fa-2x"></i> Team</a></li>
-    </ul>
-    <main class="content">
-      <div class="content_inner">
-        <section id="gallery" class="section-bg">
+  <section id="gallery" class="section-bg">
 
-          <div class="container">
-            <header class="section-header">
-              <h3 class="section-title"><?php echo $event["ev_category"] ?>: <?php echo $event["ev_name"] ?></h3>
-            </header>
-            <br>
-            <div class="row">
-              <div class="col-lg-6 col-md-6">
-                <img src="<?php echo $event['ev_poster_url'] ?>" width="100%">
-              </div>
-              <div class="col-lg-6 col-md-6">
-                <h3 style="color: #219999">Name: <span style="color: #fff"><?php echo $event['ev_name'] ?></span></h3>
-                <h5 style="color: #219999">Description: <span style="color: #fff"><?php echo $event['ev_description'] ?></span></h5>
-                <h5 style="color: #219999">Organiser: <span style="color: #fff"><?php echo $event['ev_organiser'] ?></span></h5>
-                <h5 style="color: #219999">Organizer's Phone: <span style="color: #fff"><?php echo $event['ev_org_phone'] ?></span></h5>
-                <h5 style="color: #219999">Club: <span style="color: #fff"><?php echo $event['ev_club'] ?></span></h5>
-                <h5 style="color: #219999">Date: <span style="color: #fff"><?php echo $event['ev_date'] ?></span></h5>
-                <h5 style="color: #219999">Venue: <span style="color: #fff"><?php echo $event['ev_venue'] ?></span></h5>
-                <h5 style="color: #219999">Start Time: <span style="color: #fff"><?php echo $event['ev_start_time'] ?></span></h5>
-                <h5 style="color: #219999">End Time: <span style="color: #fff"><?php echo $event['ev_end_time'] ?></span></h5>
-                <h5 style="color: #219999">Event Prize Money:  <span style="color: #fff"><?php echo $event['ev_prize'] ?></span></h5>
-                <?php if($event['is_team_event']){ ?>
-                  <h5 style="color: #219999">Maximum Team Strength: <span style="color: #fff"><?php echo $event['team_members'] ?></span></h5>
-                  <h5 style="color: #219999; margin-bottom: 0">Team Registration Amount: <span style="color: #fff">₹<?php echo $event['ev_amount'] ?></span></h5>
-                <?php }else{ ?>
-                  <h5 style="color: #219999">Registration Amount : <span style="color: #fff">₹<?php echo $event['ev_amount'] ?></span></h5>
+    <div class="container">
+      <header class="section-header">
+        <h3 class="section-title"><?php echo $event["ev_category"] ?>: <?php echo $event["ev_name"] ?></h3>
+      </header>
+      <br>
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <img src="<?php echo $event['ev_poster_url'] ?>" width="100%">
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <h3 style="color: #219999">Name: <span style="color: #fff"><?php echo $event['ev_name'] ?></span></h3>
+          <h5 style="color: #219999">Description: <span style="color: #fff"><?php echo $event['ev_description'] ?></span></h5>
+          <h5 style="color: #219999">Organiser: <span style="color: #fff"><?php echo $event['ev_organiser'] ?></span></h5>
+          <h5 style="color: #219999">Organizer's Phone: <span style="color: #fff"><?php echo $event['ev_org_phone'] ?></span></h5>
+          <h5 style="color: #219999">Club: <span style="color: #fff"><?php echo $event['ev_club'] ?></span></h5>
+          <h5 style="color: #219999">Date: <span style="color: #fff"><?php echo $event['ev_date'] ?></span></h5>
+          <h5 style="color: #219999">Venue: <span style="color: #fff"><?php echo $event['ev_venue'] ?></span></h5>
+          <h5 style="color: #219999">Start Time: <span style="color: #fff"><?php echo $event['ev_start_time'] ?></span></h5>
+          <h5 style="color: #219999">End Time: <span style="color: #fff"><?php echo $event['ev_end_time'] ?></span></h5>
+          <h5 style="color: #219999">Event Prize Money:  <span style="color: #fff"><?php echo $event['ev_prize'] ?></span></h5>
+          <?php if($event['is_team_event']){ ?>
+            <h5 style="color: #219999">Maximum Team Strength: <span style="color: #fff"><?php echo $event['team_members'] ?></span></h5>
+            <h5 style="color: #219999; margin-bottom: 0">Team Registration Amount: <span style="color: #fff">₹<?php echo $event['ev_amount'] ?></span></h5>
+          <?php }else{ ?>
+            <h5 style="color: #219999">Registration Amount : <span style="color: #fff">₹<?php echo $event['ev_amount'] ?></span></h5>
+          <?php } ?>
+          <br>
+          <a class="btn btn-success" style="color: #fff" href="<?php echo $event['ev_rule_book_url'] ?>">Rulebook</a>
+          <?php if ($loggedIn) {
+              if (!$event['is_team_event']) { ?>
+              <?php if($current_event == null) { ?>
+              <button class="btn btn-success" style="color: #fff" id="regEvBtn" onclick="regEvFunc('<?php echo $event['ev_id'] ?>', '<?php echo $celestaid ?>', '<?php echo $access_token ?>')"><span class="spinner-border spinner-border-sm spinner" style="display: none"></span> Register Event</button>
+              <?php } else { ?>
+              <?php if ($event_amount - ($amount_paid) > 0) { ?>
+                <form action="http://techprolabz.com/pay/dataFrom.php" method="POST">
+                    <input type="text" hidden value="<?php echo $ev->ev_id ?>" name="ev_id">
+                    <input type="text" hidden value="<?php echo $celestaid ?>" name="celestaid">
+                    <input type="text" hidden value="<?php echo $access_token ?>" name="access_token">
+                    <input type="text" hidden value="<?php echo $event_amount ?>" name="ev_amount">
+                    <input type="text" hidden value="<?php echo $profile['email'] ?>" name="email">
+                    <input type="text" hidden value="<?php echo $profile['phone'] ?>" name="phone">
+                    <input type="text" hidden value="<?php echo $profile['first_name'] . ' ' . $profile['last_name'] ?>" name="name">
+                    <button type="submit" class="btn btn-primary">Pay Event Fee</button>
+                </form>
+              <?php } ?>
+              <?php } ?>
+            <?php } else {?>
+              <?php if($current_event == null) { ?>
+                <button class="btn btn-success" style="color: #fff" id="regTeamEvBtn" data-toggle="modal" data-target="#regTeamEvModal">Register Team Event</button>
+              <?php } else { ?>
+                <?php if ($event_amount - ($amount_paid) > 0) { ?>
+                  <form action="http://techprolabz.com/pay/dataFrom.php" method="POST">
+                      <input type="text" hidden value="<?php echo $ev->ev_id ?>" name="ev_id">
+                      <input type="text" hidden value="<?php echo $celestaid ?>" name="celestaid">
+                      <input type="text" hidden value="<?php echo $access_token ?>" name="access_token">
+                      <input type="text" hidden value="<?php echo $event_amount ?>" name="ev_amount">
+                      <input type="text" hidden value="<?php echo $profile['email'] ?>" name="email">
+                      <input type="text" hidden value="<?php echo $profile['phone'] ?>" name="phone">
+                      <input type="text" hidden value="<?php echo $profile['first_name'] . ' ' . $profile['last_name'] ?>" name="name">
+                      <button type="submit" class="btn btn-primary" style="margin: 10px 0">Pay Event Fee</button>
+                  </form>
                 <?php } ?>
-                <br>
-                <a class="btn btn-success" style="color: #fff" href="<?php echo $event['ev_rule_book_url'] ?>">Rulebook</a>
-                <?php if ($loggedIn) {
-                   if (!$event['is_team_event']) { ?>
-                   <?php if($current_event == null) { ?>
-                    <button class="btn btn-success" style="color: #fff" id="regEvBtn" onclick="regEvFunc('<?php echo $event['ev_id'] ?>', '<?php echo $celestaid ?>', '<?php echo $access_token ?>')"><span class="spinner-border spinner-border-sm spinner" style="display: none"></span> Register Event</button>
-                   <?php } else { ?>
-                    <?php if ($event_amount - ($amount_paid) > 0) { ?>
-                      <form action="http://techprolabz.com/pay/dataFrom.php" method="POST">
-                          <input type="text" hidden value="<?php echo $ev->ev_id ?>" name="ev_id">
-                          <input type="text" hidden value="<?php echo $celestaid ?>" name="celestaid">
-                          <input type="text" hidden value="<?php echo $access_token ?>" name="access_token">
-                          <input type="text" hidden value="<?php echo $event_amount ?>" name="ev_amount">
-                          <input type="text" hidden value="<?php echo $profile['email'] ?>" name="email">
-                          <input type="text" hidden value="<?php echo $profile['phone'] ?>" name="phone">
-                          <input type="text" hidden value="<?php echo $profile['first_name'] . ' ' . $profile['last_name'] ?>" name="name">
-                          <button type="submit" class="btn btn-primary">Pay Event Fee</button>
-                      </form>
-                    <?php } ?>
-                   <?php } ?>
-                  <?php } else {?>
-                    <?php if($current_event == null) { ?>
-                      <button class="btn btn-success" style="color: #fff" id="regTeamEvBtn" data-toggle="modal" data-target="#regTeamEvModal">Register Team Event</button>
-                    <?php } else { ?>
-                      <?php if ($event_amount - ($amount_paid) > 0) { ?>
-                        <form action="http://techprolabz.com/pay/dataFrom.php" method="POST">
-                            <input type="text" hidden value="<?php echo $ev->ev_id ?>" name="ev_id">
-                            <input type="text" hidden value="<?php echo $celestaid ?>" name="celestaid">
-                            <input type="text" hidden value="<?php echo $access_token ?>" name="access_token">
-                            <input type="text" hidden value="<?php echo $event_amount ?>" name="ev_amount">
-                            <input type="text" hidden value="<?php echo $profile['email'] ?>" name="email">
-                            <input type="text" hidden value="<?php echo $profile['phone'] ?>" name="phone">
-                            <input type="text" hidden value="<?php echo $profile['first_name'] . ' ' . $profile['last_name'] ?>" name="name">
-                            <button type="submit" class="btn btn-primary" style="margin: 10px 0">Pay Event Fee</button>
-                        </form>
-                      <?php } ?>
-                    <?php } ?>
-                  <?php }
-                 } else { ?>
-                  <a class="btn" style="color: #fff; background: 	rgb(139,0,139,.8); font-size: 12px" href="./../backend/user/login.php?redirecteventsdetails=<?php echo $event['ev_id']?>">Login to Register</a>
-                <?php } ?>
+              <?php } ?>
+            <?php }
+            } else { ?>
+            <a class="btn" style="color: #fff; background: 	rgb(139,0,139,.8); font-size: 12px" href="./../backend/user/login.php?redirecteventsdetails=<?php echo $event['ev_id']?>">Login to Register</a>
+          <?php } ?>
 
-              </div>
-            </div>
-          </div>
-
+        </div>
       </div>
-      </section>
-  </div>
-  </main>
-  </div>
+    </div>
+
+</div>
+</section>
 
   <!-- modal -->
   <div class="modal fade" id="regTeamEvModal" style="padding-left: 0px;">
