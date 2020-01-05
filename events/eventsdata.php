@@ -1,9 +1,9 @@
 <?php 
     include("../backend/user/functions/init.php"); 
     $loggedIn = logged_in();
-    $celestaid=""; $access_token="";
+    $anweshaid=""; $access_token="";
     if(logged_in()){
-      $celestaid = $_SESSION['celestaid'];
+      $anweshaid = $_SESSION['anweshaid'];
       $access_token=$_SESSION['access_token'];
     }
 ?>
@@ -11,8 +11,8 @@
 <?php
   $param=$_GET['data'];
 
-  // $service_url = 'http://localhost/celesta2k19-webpage/backend/admin/functions/events_api.php';
-  $service_url = 'https://celesta.org.in/backend/admin/functions/events_api.php';
+  $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
+  // $service_url = 'https://celesta.org.in/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
   $curl_response = curl_exec($curl);
@@ -23,10 +23,9 @@
   }
   curl_close($curl);
   $data = json_decode($curl_response, true);
-
   $events=array();
   foreach($data as $d){
-    if($d['ev_category']==ucfirst($param)){
+    if($d['ev_category']==ucfirst($param) || $d['ev_category']==$param){
       array_push($events,$d);
     }
   }
@@ -53,7 +52,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Celesta'19</title>
+  <title>Anwesha'20</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <meta content="" name="keywords" />
   <meta content="" name="description" />
@@ -105,7 +104,7 @@
   <section id="gallery" class="section-bg">
     <div class="container">
       <header class="section-header sec_head">
-        <h3 class="section-title">Celesta Events</h3>
+        <h3 class="section-title">Anwesha Events</h3>
       </header>
 
       <div class="row">
