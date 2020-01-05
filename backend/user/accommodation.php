@@ -22,7 +22,8 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Comfortaa:400,700'>
-<link rel="stylesheet" href="./css/signup.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="./css/signup.css?version=51">
 <link href="./images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <link href="./images/favicon.ico" rel="apple-touch-icon">
 </head>
@@ -57,7 +58,7 @@
 
 			<div class=" row">
 				<button id="login-button">
-					Book Accommodation &nbsp;&nbsp;<span class="spinner-border spinner-border-sm spinner" style="display: none"></span>
+					Book Accommodation &nbsp;&nbsp;<span class="spinner-border spinner-border-sm spinner" style="display:none" ></span>
 				</button>
 			</div>
 			<div id="login-button" >

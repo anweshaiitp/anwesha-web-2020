@@ -7,15 +7,20 @@ html, body {
   width: 100%;
   overflow: hidden; */
 }
+body{
+  background-image: url("../images/facts-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
 
 .container {
   padding: 1px 20px;
   min-height: 100vh;
   /* height: 100%; */
   width: 100%;
-  background-image: url("../images/facts-bg.jpg");
+  /* background-image: url("../images/facts-bg.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   color: #fff;
   font-family: "Comfortaa", "Helvetica", sans-serif;
 }
