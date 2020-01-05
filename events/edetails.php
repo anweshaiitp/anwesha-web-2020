@@ -1,20 +1,14 @@
-<?php 
-    include("../backend/user/functions/init.php"); 
-    $loggedIn = logged_in();
-    $anweshaid=""; $access_token="";
-    if(logged_in()){
-      $anweshaid = $_SESSION['anweshaid'];
-      $access_token=$_SESSION['access_token'];
-    }
-?>
-
 <?php
-if(isset($_GET['data']))
-  $param=$_GET['data'];
-else{
-	$param="events";
-}
+  include("../backend/user/functions/init.php");
+  $loggedIn = logged_in();
+  $anweshaid = "";
+  $access_token = "";
+  if (logged_in()) {
+    $anweshaid = $_SESSION['anweshaid'];
+    $access_token = $_SESSION['access_token'];
+  }
 
+  $id = $_GET['id'];
   $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
   // $service_url = 'https://celesta.org.in/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
@@ -23,39 +17,40 @@ else{
   if ($curl_response === false) {
     $info = curl_getinfo($curl);
     curl_close($curl);
-    die('error occured during curl exec. Additioanl info: ' . var_export($info));
+    die('Error occured during curl exec. Additioanl info: ' . var_export($info));
   }
   curl_close($curl);
   $data = json_decode($curl_response, true);
-  
-  $events=array();
-  foreach($data as $d){
-    if($d['ev_category']==ucfirst($param) || $d['ev_category']==$param){
-      array_push($events,$d);
+  $event;
+  foreach ($data as $d) {
+    if ($d['ev_id'] == $id) {
+      $event = $d;
     }
   }
-  $filters="";
-  if($param=="events"){
-    $filters='
-      <li><a href="#" data-filter=".filter-TECH">TECH</a></li>
-      <li><a href="#" data-filter=".filter-NON-TECH">NON-TECH</a></li>
-      <li><a href="#" data-filter=".filter-CODING">CODING</a></li>
-      <li><a href="#" data-filter=".filter-MANAGEMENT">MANAGEMENT</a></li>
-      <li><a href="#" data-filter=".filter-ROBOTICS">ROBOTICS</a></li>
-    ';
-  }elseif($param=="schoolevents"){
-    $filters='
-      <li data-filter=".filter-TECH"><a href="#">TECH</a></li>
-      <li data-filter=".filter-NON-TECH"><a href="#">NON-TECH</a></li>
-      <li data-filter=".filter-ROBOTICS"><a href="#">ROBOTICS</a></li>
-    ';
+
+  $current_event=null;
+  $event_amount=$event['ev_amount'];
+  $amount_paid;
+  if(logged_in()){
+    $profile = user_details($anweshaid);
+    $user_registered_events = json_decode($profile['events_registered']);
+    foreach($user_registered_events as $e){
+      if($e->ev_id==$event['ev_id']){
+        $current_event=$e;
+      }
+    }
+    if($current_event != null){
+      $amount_paid = $current_event->amount;
+    }
+
   }
+
 ?>
 <!doctype html>
 <html lang="ZXX">
 
 <head>
-	<title>Anwesha ♥ | IIT Patna</title>
+	<title>C0AGEX - Creative Agency Template</title>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -70,22 +65,14 @@ else{
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,700,900&display=swap" rel="stylesheet">
 	<!-- Meanmenu css -->
 	<link rel="stylesheet" href="../css/meanmenu.css">
-	<!-- Magnific css -->
-	<link rel="stylesheet" href="../css/magnific-popup.min.css">
 	<!-- Animation CSS -->
 	<link href="../css/aos.min.css" rel="stylesheet">
+	<link href="../css/slider.css" rel="stylesheet">
 	<!-- Slick Carousel CSS -->
 	<link href="../css/slick.css" rel="stylesheet">
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="../style.css">
 	<link rel="stylesheet" href="../css/responsive.css">
-	<!-- Scrollbar CSS -->
-	<link type="text/css"
-		href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css"
-		rel="stylesheet" />
-	<!-- Scrollbar JS -->
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js"></script>
 </head>
 
 <body>
@@ -93,11 +80,10 @@ else{
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-	<!--  Preloader Start
-========================-->
+
+	<!--=============== Preloader Start========================-->
 	<div id='preloader'>
 		<div id='status'>
-			<img class="fade-in-fade-out" src='../img/favicon.png' alt='LOADING....!!!!!' />
 			<img src='../img/loading.gif' alt='LOADING....!!!!!' />
 		</div>
 	</div>
@@ -110,7 +96,7 @@ else{
 					<!-- logo-area-->
 					<div class="col-xl-2 col-lg-3 col-md-3">
 						<div class="logo-area">
-							<a href="../index.html"><img src="../img/logo.png" alt="enventer"></a>
+							<a href="index.html"><img src="../img/logo.png" alt="enventer"></a>
 						</div>
 					</div>
 					<!-- mainmenu-area-->
@@ -118,34 +104,41 @@ else{
 						<div class="main-menu f-right">
 							<nav id="mobile-menu">
 								<ul>
+								<ul>
 									<li>
-										<a href="#">home</a>
+										<a class="current" href="./">home</a>
 									</li>
 									<li>
-										<a href="about-us.html">about</a>
+										<a href="./backend/user/registeruser.php">register</a>
 									</li>
 									<li>
-										<a href="team.html">team</a>
+										<a href="events.html">events</a>
+									</li>
+									<li>
+										<a href="contact.html">sponsors</a>
+									</li>
+									<li>
+										<a href="team.html">gallery</a>
+									</li>
+									<li>
+										<a href="./ca/ca.php">CA</a>
 									</li>
 									<!-- dropdown menu-area-->
 									<li>
-										<a class="current" href="#" onclick="return false">pages <i class="fas fa-angle-down"></i>
+										<a href="#" onclick="return false">more <i class="fas fa-angle-down"></i>
 										</a>
 										<ul class="dropdown">
-											<li><a href="about-us.html">about us</a></li>
-											<li><a href="portfolio.html">portfolio</a></li>
-											<li><a href="portfolio2.html">portfolio two</a></li>
-											<li><a href="single-portfolio.html">single portfolio</a></li>
-											<li><a href="blog.html">blog page</a></li>
-											<li><a href="single-blog.html">single blog</a></li>
-											<li><a href="single-blog2.html">single blog two</a></li>
+											<li><a href="about-us.html">accomodation</a></li>
+											<li><a href="portfolio.html">multicity</a></li>
+											<li><a href="portfolio2.html">FAQ</a></li>
 											<li><a href="team.html">our team</a></li>
-											<li><a href="contact.html">contact us</a></li>
-											<li><a href="404.html">404 Page</a></li>
+											<li><a href="contact.html">contact</a></li>
+											<!-- <li><a href="single-blog.html">single blog</a></li>
+												<li><a href="single-blog2.html">single blog two</a></li>
+												<li><a href="team.html">our team</a></li>
+												<li><a href="contact.html">contact us</a></li>
+												<li><a href="404.html">404 Page</a></li> -->
 										</ul>
-									</li>
-									<li>
-										<a href="contact.html">contact</a>
 									</li>
 								</ul>
 							</nav>
@@ -171,80 +164,84 @@ else{
 			</div>
 		</div>
 	</header>
-	<!-- =========Portfolio Image Area=========== -->
+	<!-- =========Single Portfolio Image Area=========== -->
 	<div class="portfolio-hero-banner">
 		<div class="portfolio-hero-text">
-		<header class="section-header sec_head">
-        <h1 class="section-title">Anwesha Events</h3>
-      </header>
+			<h1><?php echo $event["ev_category"] ?></h1>
+			<h3><?php echo $event["ev_name"] ?> </h3>
 		</div>
 	</div>
-	<div class="portfolio-main-area">
+	<!-- =========Single Portfolio Details=========== -->
+	<div class="portfolio-details">
 		<div class="container">
-			<div class="row">
-				<!-- portfolio filtering button -->
-				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-					<div class="portfolio-filter">
-						<ul>
-							<li class="active"><a href="#" data-filter="*"> All</a></li>
-							<?php echo $filters; ?>
-						</ul>
+			<div class="portfolio-details-box">
+				<div class="row">
+					<!--single project slider-->
+					<div class="col-xl-6 col-lg-6 col-md-12">
+						<div class="single-project-slider">
+							<div class="portfolio-screenshot">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-12">
+						<!--single project name-->
+						<div class="project-name">
+							<h3><?php echo $event["ev_name"] ?></h3>
+						</div>
+						<!--single project description-->
+						<div class="project-description">
+							<h3>Description</h3>
+							<p><?php echo $event["ev_description"] ?></p>
+                        </div>
+                        <div class="project-info">
+                            <h3>Event Info</h3>
+                            <h4>Organiser: <span ><?php echo $event['ev_organiser'] ?></span></h4>
+                            <h4>Organizer's Phone: <span ><?php echo $event['ev_org_phone'] ?></span></h4>
+                            <h4>Club: <span ><?php echo $event['ev_club'] ?></span></h4>
+                            <h4>Date: <span ><?php echo $event['ev_date'] ?></span></h4>
+                            <h4>Venue: <span ><?php echo $event['ev_venue'] ?></span></h4>
+                            <h4>Start Time: <span ><?php echo $event['ev_start_time'] ?></span></h4>
+                            <h4>End Time: <span ><?php echo $event['ev_end_time'] ?></span></h4>
+                            <h4>Event Prize Money:  <span ><?php echo $event['ev_prize'] ?></span></h4>
+                            <?php if($event["is_team_event"]){?>
+                                <h4>Maximum Team Strength: <span><?php echo $event['team_members'] ?></span></h5>
+                            <?php } ?>
+                        </div>
 					</div>
 				</div>
 			</div>
-			<div class="row grid">
-				<!-- single portfolio -->
-				<?php foreach($events as $e) { ?>
-					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 filter-<?php echo $e['ev_club']?> default-margin-mt portfolio-headmove">
-						<div class="single-portfolio">
-							<div class="portfolio-image">
-								<img src="https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg" alt="">
-								<div class="portfolio-content">
-									<p><?php echo $e['ev_description']?></p>
-									<p><a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">view details</a></p>
-									<p>
-										<?php if($loggedIn){?>
-											<?php if (!$e['is_team_event']) { ?>
-												<a class="btn btn-info"  href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">Register Event</a>
-											<?php } else { ?>
-												<a class="btn btn-info"  href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">Register Team Event</a>
-											<?php } ?>
-										<?php }else{?>
-											<a class="btn" href="./../backend/user/login.php?redirecteventsdata=<?php echo $param?>">Login to Register</a>
-										<?php }?>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="portfolio-titile">
-							<h3><?php echo $e['ev_name']?></h3>
-						</div>
-					</div>	
-        		<?php } ?>
-				<!-- single portfolio -->
+			<div class="row">
+				<!--single project description-->
 				
+			<div class="col-xl-6">
+				<!--single project technology-->
+				<div class="project-technology form-check form-check-inline">
+					<!-- <h3>Technology we used</h3> -->
+					<ul>
+						<li><button class="btn btn-info form-check-input" href="<?php echo $event['ev_rule_book_url'] ?>">Rulebook</button></li>
+						<?php if($loggedIn){ 
+                            if(!$current_event==null){
+                                if($event["is_team_event"]){?>
+                                <li><button class="btn btn-success form-check-input" style="color: #fff" id="regTeamEvBtn" data-toggle="modal" data-target="#regTeamEvModal">Register for Team Event</button></li>
+                                <?php } else{?>
+                                    <li><button class="btn btn-success form-check-input" style="color: #fff" id="regEvBtn" onclick="regEvFunc('<?php echo $event['ev_id'] ?>', '<?php echo $anweshaid ?>', '<?php echo $access_token ?>')"><span class="spinner-border spinner-border-sm spinner" style="display: none"></span> Register for Event</button></li>
+                                <?php }?>
+                            <?php }else{ ?>
+                                <li>Already registered for event</li>
+                            <?php }?>
+                        <?php }else{?>
+                            <li><button class="btn form-check-input" href="./../backend/user/login.php?redirecteventsdetails=<?php echo $event['ev_id']?>">Login to Register</button></li>
+                        <?php }?>
+					</ul>
+				</div>
+				<!--single project info-->
+					
+				</div>
 			</div>
 		</div>
-		<!-- Pagination -->
-		<!-- <div class="col-xl-12">
-			<div class="next-previous-page">
-				<nav aria-label="...">
-					<ul class="pagination">
-						<li class="page-item disabled">
-							<a class="page-link" href="#" tabindex="-1"> &#60; </a></li>
-						<li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-						<li class="page-item">
-							<a class="page-link" href="#">2</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item">
-							<a class="page-link" href="#">&#62;</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</div> -->
 	</div>
+	<div class="toastContainer" style="position: absolute; top: 0; right: 0; margin: 20px; z-index: 99999;"></div>
 	<!-- =========Call to Action=========== -->
 	<div class="callto-action">
 		<div class="container">
@@ -271,7 +268,7 @@ else{
 					<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
 						<div class="footer-logo">
 							<a href="#">
-								<img src="../img/logo.png" alt="">
+								<img src="img/logo.png" alt="">
 							</a>
 							<p> Think. Dream. Live. Anwesha. <br> Every spell is a journey.</p>
 						</div>
