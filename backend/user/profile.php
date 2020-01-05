@@ -21,6 +21,27 @@
 	}
 	$profile = user_details($anweshaid);
 	$registration=userInAccommodation($anweshaid);
+	if($registration!=false){
+		$msg='';
+		if($registration['day1']&&$registration['day2']&&$registration['day3']){
+			$msg='day1,day2 and day3';
+		}
+		else if($registration['day2']&&$registration['day3']){
+			$msg='day2 and day3';
+		}
+		else if($registration['day1']&&$registration['day1']){
+			$msg='day1 and day2';
+		}
+		else if($registration['day2']){
+			$msg='day2';
+		}
+		else if($registration['day3']){
+			$msg='day3';
+		}
+		else{
+			$msg='day1';
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +86,8 @@
 					<?php if(!$registration){?> 
 					<a class="btn btn-info" href="./accommodation.php">Book Accommodation</a>
 					<?php }else{ ?>
-						Already booked accommodation.Check mail for further details
+						Accommodation ooked for<?php echo $msg ?>.Check mail for further details
+						<a class="btn btn-info" href="./accommodation.php">Change Accommodation</a>
 					<?php } ?> 
 				</h1>
 			</section>

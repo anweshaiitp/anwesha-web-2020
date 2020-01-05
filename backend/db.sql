@@ -180,7 +180,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `vali
 --
 ALTER TABLE `accommodation`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `celestaid` (`anweshaid`);
+  ADD UNIQUE KEY `anweshaid` (`anweshaid`);
 
 --
 -- Indexes for table `admins`
@@ -194,7 +194,7 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `ca_users`
   ADD PRIMARY KEY (`id`,`email`),
-  ADD UNIQUE KEY `celestaid` (`anweshaid`);
+  ADD UNIQUE KEY `anweshaid` (`anweshaid`);
 
 --
 -- Indexes for table `events`
@@ -210,7 +210,7 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `id` (`id`,`email`),
-  ADD UNIQUE KEY `celestaid` (`anweshaid`),
+  ADD UNIQUE KEY `anweshaid` (`anweshaid`),
   ADD UNIQUE KEY `qrcode` (`qrcode`);
 
 --

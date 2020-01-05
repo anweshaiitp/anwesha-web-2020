@@ -929,11 +929,11 @@ function conf_pass_change(){
 }
 
 function userInAccommodation($anweshaid){
-	$sql="SELECT id from accommodation WHERE anweshaid='$anweshaid'";
+	$sql="SELECT * from accommodation WHERE anweshaid='$anweshaid'";
 	$result=query($sql);
 	confirm($result);
 	if(row_count($result)==1){
-		return true;
+		return fetch_array($result);
 	}else{
 		return false;
 	}
