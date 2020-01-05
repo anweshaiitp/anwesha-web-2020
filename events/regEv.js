@@ -1,12 +1,12 @@
-const regEvFunc = async (eventId, celestaId, accessToken) => {
+const regEvFunc = async (eventId, anweshaId, accessToken) => {
   let spinner = document.querySelector(".spinner");
   spinner.style.display = "inline-block";
   let formData = new FormData();
   formData.append("eventid", eventId);
-  formData.append("celestaid", celestaId);
+  formData.append("anweshaid", anweshaId);
   formData.append("access_token", accessToken);
-  let url="https://celesta.org.in/backend/admin/functions/register_event.php";
-  // let url="http://localhost/celesta2k19-webpage/backend/admin/functions/register_event.php";
+  // let url="https://celesta.org.in/backend/admin/functions/register_event.php";
+  let url="http://localhost/anwesha-web-2020/backend/admin/functions/register_event.php";
   let res = await fetch(
     url,
     {

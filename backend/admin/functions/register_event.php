@@ -8,12 +8,12 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
     
     // Execute 
     $eventid=clean($_POST["eventid"]);
-    $celestaid=clean($_POST["celestaid"]);
+    $anweshaid=clean($_POST["anweshaid"]);
     $access_token=clean($_POST["access_token"]);
 
     if(eventExists($eventid)){ // Checking for existence of event. Declared in functions.php
 
-        $sql = "SELECT first_name,last_name, phone, events_registered, email, qrcode FROM users WHERE celestaid='$celestaid' and access_token='$access_token'";
+        $sql = "SELECT first_name,last_name, phone, events_registered, email, qrcode FROM users WHERE anweshaid='$anweshaid' and access_token='$access_token'";
         $result=query($sql);
         confirm($result);
         // Checking if user is valid or not
@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
             $qrcode=$row['qrcode'];
 
             // Check if user has already registered or not
-            if(alreadyRegistered($celestaid, $regis)){
+            if(alreadyRegistered($anweshaid, $regis)){
                 $response['status']=302;
                 $errors[]="Already registered.";
                 // set_message("<p class='bg-danger text-center'>You have already registered this event.</p>");
@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
                 // Updating the data into the events table.
                 $reg=array();
-                $reg["celestaid"]=$celestaid;
+                $reg["anweshaid"]=$anweshaid;
                 $reg["name"]=$row["first_name"]." ".$row["last_name"];
                 $reg["phone"]=$row["phone"];
                 $reg['amount']=0;
@@ -63,22 +63,22 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                 $add_event["amount"]=0;
                 $ev_registered[]=$add_event;
                 $ev_registered=json_encode($ev_registered);
-                $sql3="UPDATE users SET events_registered='$ev_registered' WHERE celestaid='$celestaid'";
+                $sql3="UPDATE users SET events_registered='$ev_registered' WHERE anweshaid='$anweshaid'";
                 $result3=query($sql3);
 
                 // Check if user is present in the present user table or not
-                // $sql4="SELECT * FROM present_users WHERE celestaid='$celestaid'";
+                // $sql4="SELECT * FROM present_users WHERE anweshaid='$anweshaid'";
                 // $result4=query($sql4);
                 // if(row_count($result4)==1){
                 //     // Update the data in the present users table events_registered columnr
-                //     $sql5="UPDATE present_users SET events_registered='$ev_registered' WHERE celestaid='$celestaid'";
+                //     $sql5="UPDATE present_users SET events_registered='$ev_registered' WHERE anweshaid='$anweshaid'";
                 //     $result5=query($sql5);
                 // }
 
-                $subject="Celesta2k19 Events Registration";
+                $subject="Anwesha2k20 Events Registration";
                 $msg="<p>
                 Hi ".$row['first_name']." ".$row['last_name']." you have successfully registered for $ev_name. <br/>
-                    Your Celesta Id is ".$celestaid.". <br/>
+                    Your Anwesha Id is ".$anweshaid.". <br/>
                     You qr code is <img src='$qrcode'/> <a href='$qrcode'>click here</a><br/> </p>
                 ";
                 $header="From: noreply@yourwebsite.com";
@@ -92,8 +92,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
         }else{
             $response['status']=401;
-            $errors[]="Unauthorized access. Celesta ID or access token doesn't match.";
-            // set_message("<p class='bg-danger text-center'>Unauthorized access. Celesta ID or access token doesn't match.</p>");
+            $errors[]="Unauthorized access. Anwesha ID or access token doesn't match.";
+            // set_message("<p class='bg-danger text-center'>Unauthorized access. Anwesha ID or access token doesn't match.</p>");
         } // End of else part of user authentication.
     }else{
         $response['status']=404;
@@ -107,12 +107,12 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 }
 
 // To check if a person has already registered or not
-function alreadyRegistered($celestaid,$regis){
+function alreadyRegistered($anweshaid,$regis){
     if($regis == NULL)
         return false;
     foreach($regis as $reg){
-        $id=$reg->celestaid;
-        if($id==$celestaid){
+        $id=$reg->anweshaid;
+        if($id==$anweshaid){
             return true;
         }
     }
