@@ -241,6 +241,7 @@
 			</div>
 		</div>
 	</div>
+	<div class="toastContainer" style="position: absolute; top: 0; right: 0; margin: 20px; z-index: 99999;"></div>
 	<!-- =========Call to Action=========== -->
 	<div class="callto-action">
 		<div class="container">
