@@ -1,16 +1,16 @@
 <?php
   include("../backend/user/functions/init.php");
   $loggedIn = logged_in();
-  $celestaid = "";
+  $anweshaid = "";
   $access_token = "";
   if (logged_in()) {
-    $celestaid = $_SESSION['celestaid'];
+    $anweshaid = $_SESSION['anweshaid'];
     $access_token = $_SESSION['access_token'];
   }
 
   $id = $_GET['id'];
-  // $service_url = 'http://localhost/celesta2k19-webpage/backend/admin/functions/events_api.php';
-  $service_url = 'https://celesta.org.in/backend/admin/functions/events_api.php';
+  $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
+  // $service_url = 'https://celesta.org.in/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
   $curl_response = curl_exec($curl);
@@ -32,7 +32,7 @@
   $event_amount=$event['ev_amount'];
   $amount_paid;
   if(logged_in()){
-    $profile = user_details($celestaid);
+    $profile = user_details($anweshaid);
     $user_registered_events = json_decode($profile['events_registered']);
     foreach($user_registered_events as $e){
       if($e->ev_id==$event['ev_id']){
@@ -52,7 +52,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Celesta'19</title>
+  <title>Anwesha'20</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <meta content="" name="keywords" />
   <meta content="" name="description" />
@@ -127,12 +127,12 @@
           <?php if ($loggedIn) {
               if (!$event['is_team_event']) { ?>
               <?php if($current_event == null) { ?>
-              <button class="btn btn-success" style="color: #fff" id="regEvBtn" onclick="regEvFunc('<?php echo $event['ev_id'] ?>', '<?php echo $celestaid ?>', '<?php echo $access_token ?>')"><span class="spinner-border spinner-border-sm spinner" style="display: none"></span> Register Event</button>
+              <button class="btn btn-success" style="color: #fff" id="regEvBtn" onclick="regEvFunc('<?php echo $event['ev_id'] ?>', '<?php echo $anweshaid ?>', '<?php echo $access_token ?>')"><span class="spinner-border spinner-border-sm spinner" style="display: none"></span> Register Event</button>
               <?php } else { ?>
               <?php if ($event_amount - ($amount_paid) > 0) { ?>
                 <form action="http://techprolabz.com/pay/dataFrom.php" method="POST">
                     <input type="text" hidden value="<?php echo $ev->ev_id ?>" name="ev_id">
-                    <input type="text" hidden value="<?php echo $celestaid ?>" name="celestaid">
+                    <input type="text" hidden value="<?php echo $anweshaid ?>" name="anweshaid">
                     <input type="text" hidden value="<?php echo $access_token ?>" name="access_token">
                     <input type="text" hidden value="<?php echo $event_amount ?>" name="ev_amount">
                     <input type="text" hidden value="<?php echo $profile['email'] ?>" name="email">
@@ -149,7 +149,7 @@
                 <?php if ($event_amount - ($amount_paid) > 0) { ?>
                   <form action="http://techprolabz.com/pay/dataFrom.php" method="POST">
                       <input type="text" hidden value="<?php echo $ev->ev_id ?>" name="ev_id">
-                      <input type="text" hidden value="<?php echo $celestaid ?>" name="celestaid">
+                      <input type="text" hidden value="<?php echo $anweshaid ?>" name="anweshaid">
                       <input type="text" hidden value="<?php echo $access_token ?>" name="access_token">
                       <input type="text" hidden value="<?php echo $event_amount ?>" name="ev_amount">
                       <input type="text" hidden value="<?php echo $profile['email'] ?>" name="email">
@@ -183,13 +183,13 @@
           <small>
             <b>Notes:</b><br>
             * A team can consist of only captain if there are no other members in the team.<br>
-            * Celesta-ID of team members is required if there are team members.<br>
+            * Anwesha-ID of team members is required if there are team members.<br>
           </small>
           <br>
           <form id="regTeamEvForm">
           <div class="form-group">
-              <label for="member1">Celesta Id Of Team Captain (Member 1)</label>
-              <input type="text" class="form-control" name="celestaid" id="celestaid" value="<?php echo $celestaid?>" disabled>
+              <label for="member1">Anwesha Id Of Team Captain (Member 1)</label>
+              <input type="text" class="form-control" name="anweshaid" id="anweshaid" value="<?php echo $anweshaid?>" disabled>
             </div>
             <div class="form-group">
               <label for="member4">Team Name</label>
@@ -197,7 +197,7 @@
             </div>
             <?php $max=$event['team_members']-1; for($i=1;$i<=$max;$i++){ ?>
               <div class="form-group">
-                <label for="member1">Celesta Id of member <?php echo $i+1;?></label>
+                <label for="member1">Anwesha Id of member <?php echo $i+1;?></label>
                 <input type="text" class="form-control" name="member<?php echo $i;?>" id="member<?php echo $i;?>">
               </div>
             <?php } ?>
@@ -234,7 +234,7 @@
       e.preventDefault();
       let spinner = document.querySelector(".spinner");
       spinner.style.display = "inline-block";
-      var celestaid="<?php echo $celestaid?>";
+      var anweshaid="<?php echo $anweshaid?>";
       var eventid="<?php echo $event['ev_id']?>";
       var access_token="<?php echo $access_token?>";
       var team_name=document.querySelector('#team_name').value;
@@ -245,11 +245,11 @@
         var member<?php echo $i;?>="";
       <?php } ?>
 
-      // console.log(celestaid, eventid, access_token, team_name, member1, member2, member3, member4, member5);
+      // console.log(anweshaid, eventid, access_token, team_name, member1, member2, member3, member4, member5);
 
       let formData = new FormData();
       formData.append("eventid", eventid);
-      formData.append("celestaid", celestaid);
+      formData.append("anweshaid", anweshaid);
       formData.append("access_token", access_token);
       formData.append("team_name", team_name);
       formData.append("member1", member1);
@@ -257,8 +257,8 @@
       formData.append("member3", member3);
       formData.append("member4", member4);
       formData.append("member5", member5);
-      let url="https://celesta.org.in/backend/admin/functions/reg_team_event.php";
-      // let url="http://localhost/celesta2k19-webpage/backend/admin/functions/reg_team_event.php";
+      // let url="https://celesta.org.in/backend/admin/functions/reg_team_event.php";
+      let url="http://localhost/anwesha-web-2020/backend/admin/functions/reg_team_event.php";
       let res = await fetch(
         url,
         {
