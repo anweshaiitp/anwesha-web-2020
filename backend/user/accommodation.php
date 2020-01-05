@@ -70,8 +70,11 @@
 	</form>
   </div>
 </div>
+
+<div class="toastContainer" style="position: absolute; top: 0; right: 0; margin: 20px; z-index: 99999;"></div>
+
 <!-- partial -->
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdn.jsdelivr.net/velocity/1.2.2/velocity.min.js'></script>
 <script src='https://cdn.jsdelivr.net/velocity/1.2.2/velocity.ui.min.js'></script>
 <script  src="./js/signup.js"></script>
@@ -81,7 +84,7 @@
 	<script>
 		var accoForm = document.querySelector('#login-button');
 		accoForm.addEventListener('click', async (e) => {
-		console.log("hi");
+		//console.log("hi");
 		e.preventDefault();
 		let spinner = document.querySelector(".spinner");
       	spinner.style.display = "inline-block";
@@ -121,15 +124,12 @@
 		spinner.style.display = "none";
 		let htmlData='';
 		console.log("there");
-		var responses=document.querySelector('#responses');
 		if(result.status === 404){
 			result.message.forEach((msg) => {
 				htmlData+=`
 				<div class="alert alert-danger alert-dismissible fade show" role="alert">
 					 ${msg}
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+					
 				</div>
 				`;
 			})
@@ -139,9 +139,7 @@
 				htmlData+=`
 				<div class="alert alert-danger alert-dismissible fade show" role="alert">
 					 ${msg}
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+					
 				</div>
 				`;
 			})
@@ -151,9 +149,7 @@
 				htmlData+=`
 				<div class="alert alert-warning alert-dismissible fade show" role="alert">
 					 ${msg}
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+					
 				</div>
 				`;
 			})
@@ -163,16 +159,30 @@
 				htmlData+=`
 				<div class="alert alert-success alert-dismissible fade show" role="alert">
 					 ${msg}
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+					
 				</div>
 				`;
 			})
 		}
-		responses.innerHTML=htmlData;
+		var toastContainer = document.querySelector(".toastContainer");
+		toastContainer.innerHTML = htmlData;
+		$(".toast").toast();
+		var modalButton=document.querySelector('#modalButton');
+		modalButton.click();
 		});
 	</script>
 
 </body>
 </html>
+<!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					// 	<span aria-hidden="true">&times;</span>
+					// </button>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					// 	<span aria-hidden="true">&times;</span>
+					// </button>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					// 	<span aria-hidden="true">&times;</span>
+					// </button>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					// 	<span aria-hidden="true">&times;</span>
+					// </button> -->
