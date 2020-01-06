@@ -175,10 +175,10 @@ Project Carousel
 	});
 	/*----------------------------
 	Move Background
-	------------------------------ 
+	------------------------------ */
 	$(function () {
-		$('.big-footer').backgroundMove();
-	});*/
+		$('.big-footer').backgroundMove({movementStrength:'233'});
+	})
 
 
 })(jQuery);
