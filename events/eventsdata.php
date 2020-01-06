@@ -141,8 +141,8 @@ else{
 										<a href="#" onclick="return false">more <i class="fas fa-angle-down"></i>
 										</a>
 										<ul class="dropdown">
-											<li><a href="about-us.html">accomodation</a></li>
-											<li><a href="portfolio.html">multicity</a></li>
+											<li><a href="./backend/user/accommodation.php">accomodation</a></li>
+											<li><a href="multicity.html">multicity</a></li>
 											<li><a href="portfolio2.html">FAQ</a></li>
 											<li><a href="team.html">our team</a></li>
 											<li><a href="contact.html">contact</a></li>
