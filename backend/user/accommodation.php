@@ -63,7 +63,7 @@
 			</div>
 			<div id="login-button" >
 				<a href="./profile.php" style="color:hover: red">
-					Cancel
+					Back
 				</a>
 			</div>
 		</div>
