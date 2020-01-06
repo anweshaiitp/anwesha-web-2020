@@ -46,322 +46,303 @@
   }
 
 ?>
-<!doctype html>
-<html lang="ZXX">
 
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>C0AGEX - Creative Agency Template</title>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name=description content="">
-	<meta name=author content="Enventer">
-	<link rel="icon" href="../img/favicon.png" type="image/png">
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<!-- Fontawesome CSS -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-	<!-- Google Font -->
-	<link href="https://fonts.googleapis.com/css?family=Nunito:400,700,900&display=swap" rel="stylesheet">
-	<!-- Meanmenu css -->
-	<link rel="stylesheet" href="../css/meanmenu.css">
-	<!-- Animation CSS -->
-	<link href="../css/aos.min.css" rel="stylesheet">
-	<link href="../css/slider.css" rel="stylesheet">
-	<!-- Slick Carousel CSS -->
-	<link href="../css/slick.css" rel="stylesheet">
-	<!-- Main CSS -->
-	<link rel="stylesheet" href="../style.css">
-	<link rel="stylesheet" href="../css/responsive.css">
+  <meta charset="utf-8" />
+  <title>Anwesha'20</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
+  <!-- Projects Bootstrap CSS File -->
+  <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="./lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+  <link href="./css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/bg.css" />
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151382188-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-151382188-1');
+  </script>
+
+  <link rel="stylesheet" href="./css/menu-styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-	<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+
+  <div class="waveWrapper waveAnimation">
+    <div class="waveWrapperInner bgTop">
+      <!-- <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div> -->
+    </div>
+    <div class="waveWrapperInner bgMiddle">
+      <!-- <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div> -->
+    </div>
+    <div class="waveWrapperInner bgBottom">
+      <!-- <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div> -->
+    </div>
+  </div>
+
+  <!--==========================
+      Gallery Section
+    ============================-->
+  <section id="gallery" class="section-bg">
+
+    <div class="container">
+      <header class="section-header">
+        <h3 class="section-title"><?php echo $event["ev_category"] ?>: <?php echo $event["ev_name"] ?></h3>
+      </header>
+      <br>
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <img src="<?php echo $event['ev_poster_url'] ?>" width="100%">
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <h3 style="color: #219999">Name: <span style="color: #fff"><?php echo $event['ev_name'] ?></span></h3>
+          <h5 style="color: #219999">Description: <span style="color: #fff"><?php echo $event['ev_description'] ?></span></h5>
+          <h5 style="color: #219999">Organiser: <span style="color: #fff"><?php echo $event['ev_organiser'] ?></span></h5>
+          <h5 style="color: #219999">Organizer's Phone: <span style="color: #fff"><?php echo $event['ev_org_phone'] ?></span></h5>
+          <h5 style="color: #219999">Club: <span style="color: #fff"><?php echo $event['ev_club'] ?></span></h5>
+          <h5 style="color: #219999">Date: <span style="color: #fff"><?php echo $event['ev_date'] ?></span></h5>
+          <h5 style="color: #219999">Venue: <span style="color: #fff"><?php echo $event['ev_venue'] ?></span></h5>
+          <h5 style="color: #219999">Start Time: <span style="color: #fff"><?php echo $event['ev_start_time'] ?></span></h5>
+          <h5 style="color: #219999">End Time: <span style="color: #fff"><?php echo $event['ev_end_time'] ?></span></h5>
+          <h5 style="color: #219999">Event Prize Money:  <span style="color: #fff"><?php echo $event['ev_prize'] ?></span></h5>
+          <?php if($event['is_team_event']){ ?>
+            <h5 style="color: #219999">Maximum Team Strength: <span style="color: #fff"><?php echo $event['team_members'] ?></span></h5>
+            <h5 style="color: #219999; margin-bottom: 0">Team Registration Amount: <span style="color: #fff">₹<?php echo $event['ev_amount'] ?></span></h5>
+          <?php }else{ ?>
+            <h5 style="color: #219999">Registration Amount : <span style="color: #fff">₹<?php echo $event['ev_amount'] ?></span></h5>
+          <?php } ?>
+          <br>
+          <a class="btn btn-success" style="color: #fff" href="<?php echo $event['ev_rule_book_url'] ?>">Rulebook</a>
+          <?php if ($loggedIn) {
+              if (!$event['is_team_event']) { ?>
+              <?php if($current_event == null) { ?>
+              <button class="btn btn-success" style="color: #fff" id="regEvBtn" onclick="regEvFunc('<?php echo $event['ev_id'] ?>', '<?php echo $anweshaid ?>', '<?php echo $access_token ?>')"><span class="spinner-border spinner-border-sm spinner" style="display: none"></span> Register Event</button>
+              <?php } else { ?>
+              <?php if ($event_amount - ($amount_paid) > 0) { ?>
+                <form action="http://techprolabz.com/pay/dataFrom.php" method="POST">
+                    <input type="text" hidden value="<?php echo $ev->ev_id ?>" name="ev_id">
+                    <input type="text" hidden value="<?php echo $anweshaid ?>" name="anweshaid">
+                    <input type="text" hidden value="<?php echo $access_token ?>" name="access_token">
+                    <input type="text" hidden value="<?php echo $event_amount ?>" name="ev_amount">
+                    <input type="text" hidden value="<?php echo $profile['email'] ?>" name="email">
+                    <input type="text" hidden value="<?php echo $profile['phone'] ?>" name="phone">
+                    <input type="text" hidden value="<?php echo $profile['first_name'] . ' ' . $profile['last_name'] ?>" name="name">
+                    <button type="submit" class="btn btn-primary">Pay Event Fee</button>
+                </form>
+              <?php } ?>
+              <?php } ?>
+            <?php } else {?>
+              <?php if($current_event == null) { ?>
+                <button class="btn btn-success" style="color: #fff" id="regTeamEvBtn" data-toggle="modal" data-target="#regTeamEvModal">Register Team Event</button>
+              <?php } else { ?>
+                <?php if ($event_amount - ($amount_paid) > 0) { ?>
+                  <form action="http://techprolabz.com/pay/dataFrom.php" method="POST">
+                      <input type="text" hidden value="<?php echo $ev->ev_id ?>" name="ev_id">
+                      <input type="text" hidden value="<?php echo $anweshaid ?>" name="anweshaid">
+                      <input type="text" hidden value="<?php echo $access_token ?>" name="access_token">
+                      <input type="text" hidden value="<?php echo $event_amount ?>" name="ev_amount">
+                      <input type="text" hidden value="<?php echo $profile['email'] ?>" name="email">
+                      <input type="text" hidden value="<?php echo $profile['phone'] ?>" name="phone">
+                      <input type="text" hidden value="<?php echo $profile['first_name'] . ' ' . $profile['last_name'] ?>" name="name">
+                      <button type="submit" class="btn btn-primary" style="margin: 10px 0">Pay Event Fee</button>
+                  </form>
+                <?php } ?>
+              <?php } ?>
+            <?php }
+            } else { ?>
+            <a class="btn" style="color: #fff; background: 	rgb(139,0,139,.8); font-size: 12px" href="./../backend/user/login.php?redirecteventsdetails=<?php echo $event['ev_id']?>">Login to Register</a>
+          <?php } ?>
+
+        </div>
+      </div>
+    </div>
+
+</div>
+</section>
+
+  <!-- modal -->
+  <div class="modal fade" id="regTeamEvModal" style="padding-left: 0px;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"><?php echo $event['ev_name']?> Registration Form</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <small>
+            <b>Notes:</b><br>
+            * A team can consist of only captain if there are no other members in the team.<br>
+            * Anwesha-ID of team members is required if there are team members.<br>
+          </small>
+          <br>
+          <form id="regTeamEvForm">
+          <div class="form-group">
+              <label for="member1">Anwesha Id Of Team Captain (Member 1)</label>
+              <input type="text" class="form-control" name="anweshaid" id="anweshaid" value="<?php echo $anweshaid?>" disabled>
+            </div>
+            <div class="form-group">
+              <label for="member4">Team Name</label>
+              <input type="text" class="form-control" name="team_name" id="team_name" required>
+            </div>
+            <?php $max=$event['team_members']-1; for($i=1;$i<=$max;$i++){ ?>
+              <div class="form-group">
+                <label for="member1">Anwesha Id of member <?php echo $i+1;?></label>
+                <input type="text" class="form-control" name="member<?php echo $i;?>" id="member<?php echo $i;?>">
+              </div>
+            <?php } ?>
+
+            <button type="submit" class="btn btn-primary"><span class="spinner-border spinner-border-sm spinner" style="display: none"></span> Register</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" id="modalButton">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- toasts -->
+  <div class="toastContainer" style="position: absolute; top: 0; right: 0; margin: 20px; z-index: 99999;">
+  </div>
 
 
-	<!--=============== Preloader Start========================-->
-	<div id='preloader'>
-		<div id='status'>
-			<img src='../img/loading.gif' alt='LOADING....!!!!!' />
-		</div>
-	</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="./js/menu-main.js"></script>
+  <!-- #gallery -->
 
-	<!--=========== Main Header Area ===============-->
-	<header id="home">
-		<div class="main-navigation-1">
-			<div class="container">
-				<div class="row">
-					<!-- logo-area-->
-					<div class="col-xl-2 col-lg-3 col-md-3">
-						<div class="logo-area">
-							<a href="index.html"><img src="../img/logo.png" alt="enventer"></a>
-						</div>
-					</div>
-					<!-- mainmenu-area-->
-					<div class="col-xl-10 col-lg-9 col-md-9">
-						<div class="main-menu f-right">
-							<nav id="mobile-menu">
-								<ul>
-								<ul>
-									<li>
-										<a class="current" href="./">home</a>
-									</li>
-									<li>
-										<a href="./backend/user/registeruser.php">register</a>
-									</li>
-									<li>
-										<a href="events.html">events</a>
-									</li>
-									<li>
-										<a href="contact.html">sponsors</a>
-									</li>
-									<li>
-										<a href="team.html">gallery</a>
-									</li>
-									<li>
-										<a href="./ca/ca.php">CA</a>
-									</li>
-									<!-- dropdown menu-area-->
-									<li>
-										<a href="#" onclick="return false">more <i class="fas fa-angle-down"></i>
-										</a>
-										<ul class="dropdown">
-											<li><a href="about-us.html">accomodation</a></li>
-											<li><a href="portfolio.html">multicity</a></li>
-											<li><a href="portfolio2.html">FAQ</a></li>
-											<li><a href="team.html">our team</a></li>
-											<li><a href="contact.html">contact</a></li>
-											<!-- <li><a href="single-blog.html">single blog</a></li>
-												<li><a href="single-blog2.html">single blog two</a></li>
-												<li><a href="team.html">our team</a></li>
-												<li><a href="contact.html">contact us</a></li>
-												<li><a href="404.html">404 Page</a></li> -->
-										</ul>
-									</li>
-								</ul>
-							</nav>
-						</div>
-						<!-- mobile menu-->
-						<div class="mobile-menu"></div>
-						<!--Search-->
-						<div class="search-box-area">
-							<div id="search" class="fade">
-								<a href="#" class="close-btn" id="close-search">
-									<em class="fa fa-times"></em>
-								</a>
-								<input placeholder="what are you looking for?" id="searchbox" type="search" />
-							</div>
-							<div class="search-icon-area">
-								<a href='#search'>
-									<i class="fa fa-search"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- =========Single Portfolio Image Area=========== -->
-	<div class="portfolio-hero-banner">
-		<div class="portfolio-hero-text">
-			<h1><?php echo $event["ev_category"] ?></h1>
-			<h3><?php echo $event["ev_name"] ?> </h3>
-		</div>
-	</div>
-	<!-- =========Single Portfolio Details=========== -->
-	<div class="portfolio-details">
-		<div class="container">
-			<div class="portfolio-details-box">
-				<div class="row">
-					<!--single project slider-->
-					<div class="col-xl-6 col-lg-6 col-md-12">
-						<div class="single-project-slider">
-							<div class="portfolio-screenshot">
-								<img src="https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg" alt="">
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-12">
-						<!--single project name-->
-						<div class="project-name">
-							<h3><?php echo $event["ev_name"] ?></h3>
-						</div>
-						<!--single project description-->
-						<div class="project-description">
-							<h3>Description</h3>
-							<p><?php echo $event["ev_description"] ?></p>
-                        </div>
-                        <div class="project-info">
-                            <h3>Event Info</h3>
-                            <h4>Organiser: <span ><?php echo $event['ev_organiser'] ?></span></h4>
-                            <h4>Organizer's Phone: <span ><?php echo $event['ev_org_phone'] ?></span></h4>
-                            <h4>Club: <span ><?php echo $event['ev_club'] ?></span></h4>
-                            <h4>Date: <span ><?php echo $event['ev_date'] ?></span></h4>
-                            <h4>Venue: <span ><?php echo $event['ev_venue'] ?></span></h4>
-                            <h4>Start Time: <span ><?php echo $event['ev_start_time'] ?></span></h4>
-                            <h4>End Time: <span ><?php echo $event['ev_end_time'] ?></span></h4>
-                            <h4>Event Prize Money:  <span ><?php echo $event['ev_prize'] ?></span></h4>
-                            <?php if($event["is_team_event"]){?>
-                                <h4>Maximum Team Strength: <span><?php echo $event['team_members'] ?></span></h5>
-                            <?php } ?>
-                        </div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<!--single project description-->
-				
-			<div class="col-xl-6">
-				<!--single project technology-->
-				<div class="project-technology form-check form-check-inline">
-					<!-- <h3>Technology we used</h3> -->
-					<ul>
-						<li><button class="btn btn-info form-check-input" href="<?php echo $event['ev_rule_book_url'] ?>">Rulebook</button></li>
-						<?php if($loggedIn){ 
-                            if(!$current_event==null){
-                                if($event["is_team_event"]){?>
-                                <li><button class="btn btn-success form-check-input" style="color: #fff" id="regTeamEvBtn" data-toggle="modal" data-target="#regTeamEvModal">Register for Team Event</button></li>
-                                <?php } else{?>
-                                    <li><button class="btn btn-success form-check-input" style="color: #fff" id="regEvBtn" onclick="regEvFunc('<?php echo $event['ev_id'] ?>', '<?php echo $anweshaid ?>', '<?php echo $access_token ?>')"><span class="spinner-border spinner-border-sm spinner" style="display: none"></span> Register for Event</button></li>
-                                <?php }?>
-                            <?php }else{ ?>
-                                <li>Already registered for event</li>
-                            <?php }?>
-                        <?php }else{?>
-                            <li><button class="btn form-check-input" href="./../backend/user/login.php?redirecteventsdetails=<?php echo $event['ev_id']?>">Login to Register</button></li>
-                        <?php }?>
-					</ul>
-				</div>
-				<!--single project info-->
-					
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="toastContainer" style="position: absolute; top: 0; right: 0; margin: 20px; z-index: 99999;"></div>
-	<!-- =========Call to Action=========== -->
-	<div class="callto-action">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-8 col-lg-8 col-md-8 col-sm-7">
-					<div class="callto-action-text">
-						<h5>Like what you see? <span>Let’s work</span> </h5>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4 col-md-4 col-sm-5">
-					<div class="callto-action-btn">
-						<a href="#">contact us</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- =========Footer Area=========== -->
-	<section id="footer-fixed">
-		<div class="big-footer">
-			<div class="container">
-				<div class="row">
-					<!--footer logo-->
-					<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-						<div class="footer-logo">
-							<a href="#">
-								<img src="img/logo.png" alt="">
-							</a>
-							<p> Think. Dream. Live. Anwesha. <br> Every spell is a journey.</p>
-						</div>
-						<!--footer social-->
-						<div class="social">
-							<ul>
-								<li><a class="footer-socials" href="https://www.facebook.com/anwesha.iitpatna/"><i
-											class="fab fa-facebook"></i></a></li>
-								<li><a class="footer-socials" href="https://www.instagram.com/anwesha.iitp/?hl=en"><i
-											class="fab fa-instagram"></i></a></li>
-								<li><a class="footer-socials" href="#"><i class="fab fa-twitter"></i></a></li>
-								<li><a class="footer-socials"
-										href="https://www.youtube.com/channel/UCVVdnGvmkm-Z9v9IKAq77JQ"><i
-											class="fab fa-youtube"></i></a></li>
-							</ul>
-						</div>
-					</div>
-					<!--footer quick links-->
-					<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-						<div class="footer-heading">
-							<h3>quick links</h3>
-						</div>
-						<div class="footer-content">
-							<ul>
-								<li><a href="">register</a></li>
-								<li><a href="">events</a></li>
-								<li><a href="">accomodation</a></li>
-								<li><a href="">sponsors</a></li>
-								<li><a href="">gallery</a></li>
-							</ul>
-						</div>
-					</div>
-					<!--footer latest work-->
-					<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-						<div class="footer-heading">
-							<h3>&nbsp;</h3>
-						</div>
-						<div class="footer-content">
-							<ul>
-								<li><a href="">Campus Ambassador</a></li>
-								<li><a href="">FAQ</a></li>
-								<li><a href="">contact</a></li>
-								<li><a href="">team</a></li>
-								<li><a href="">multicity</a></li>
-							</ul>
-						</div>
-					</div>
-					<!--footer subscribe-->
-					<!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-						<div class="footer-heading">
-							<h3>Get Updates</h3>
-						</div>
-						<div class="footer-content footer-cont-mar-40">
-							<form action="#">
-								<input id="leadgenaration" type="email" placeholder="Enter your email">
-								<input id="subscribe" type="submit" value="Subscribe">
-							</form>
-						</div>
-					</div> -->
-				</div>
-			</div>
-		</div>
-		<!--copyright-->
-		<footer>
-			<p>© 2020 Anwesha IIT Patna Web and App. All rights reserved.</p>
-		</footer>
-	</section>
-	<!-- Jquery JS -->
-	<script src="../js/vendor/jquery-2.2.4.min.js"></script>
-	<!-- Proper JS -->
-	<script src="../js/popper.min.js"></script>
-	<!-- Bootstrap Js -->
-	<script src="../js/bootstrap.min.js"></script>
-	<!-- Video popup Js -->
-	<script src="../js/magnific-popup.min.js"></script>
-	<!-- Waypoint Up Js -->
-	<script src="../js/waypoints.min.js"></script>
-	<!-- Counter Up Js -->
-	<script src="../js/counterup.min.js"></script>
-	<!-- Meanmenu Js -->
-	<script src="../js/meanmenu.min.js"></script>
-	<!-- Animation Js -->
-	<script src="../js/aos.min.js"></script>
-	<!-- Filtering Js -->
-	<script src="../js/isotope.min.js"></script>
-	<!-- Background Move Js -->
-	<script src="../js/jquery.backgroundMove.js"></script>
-	<!-- Slick Carousel Js -->
-	<script src="../js/slick.min.js"></script>
-	<!-- ScrollUp Js -->
-	<script src="../js/scrollUp.js"></script>
-	<!-- Main Js -->
-	<script src="../js/main.js"></script>
+  <!-- events registration js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="regEv.js"></script>
+
+  <!-- team ev registration js -->
+  <script>
+    var regTeamEvForm = document.querySelector('#regTeamEvForm');
+    regTeamEvForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      let spinner = document.querySelector(".spinner");
+      spinner.style.display = "inline-block";
+      var anweshaid="<?php echo $anweshaid?>";
+      var eventid="<?php echo $event['ev_id']?>";
+      var access_token="<?php echo $access_token?>";
+      var team_name=document.querySelector('#team_name').value;
+      <?php $max=$event['team_members']-1; for($i=1;$i<=$max;$i++){ ?>
+        var member<?php echo $i;?>=document.querySelector('#member<?php echo $i;?>').value;
+      <?php } ?>
+      <?php $max=$event['team_members']-1; for($i=$max+1;$i<=5;$i++){ ?>
+        var member<?php echo $i;?>="";
+      <?php } ?>
+
+      // console.log(anweshaid, eventid, access_token, team_name, member1, member2, member3, member4, member5);
+
+      let formData = new FormData();
+      formData.append("eventid", eventid);
+      formData.append("anweshaid", anweshaid);
+      formData.append("access_token", access_token);
+      formData.append("team_name", team_name);
+      formData.append("member1", member1);
+      formData.append("member2", member2);
+      formData.append("member3", member3);
+      formData.append("member4", member4);
+      formData.append("member5", member5);
+      // let url="https://celesta.org.in/backend/admin/functions/reg_team_event.php";
+      let url="http://localhost/anwesha-web-2020/backend/admin/functions/reg_team_event.php";
+      let res = await fetch(
+        url,
+        {
+          body: formData,
+          method: "post"
+        }
+      );
+      res = await res.json();
+      spinner.style.display = "none";
+
+      let htmlData = "";
+      if (res.status === 302) {
+        res.message.forEach(mes => {
+          htmlData += `
+              <div class="toast fade show" style="z-index: 999">
+                  <div class="toast-header bg-warning">
+                      <strong class="mr-auto"><i class="fa fa-globe"></i> Warning</strong>
+                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                  </div>
+                  <div class="toast-body">${mes}</div>
+              </div>
+              `;
+        });
+      }
+      else if (res.status === 404) {
+        res.message.forEach(mes => {
+          htmlData += `
+              <div class="toast fade show" style="z-index: 999">
+                  <div class="toast-header bg-danger">
+                      <strong class="mr-auto"><i class="fa fa-globe"></i> Error</strong>
+                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                  </div>
+                  <div class="toast-body">${mes}</div>
+              </div>
+              `;
+        });
+      }
+      else if (res.status === 405) {
+        res.message.forEach(mes => {
+          htmlData += `
+              <div class="toast fade show" style="z-index: 999">
+                  <div class="toast-header bg-danger">
+                      <strong class="mr-auto"><i class="fa fa-globe"></i> Error</strong>
+                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                  </div>
+                  <div class="toast-body">${mes}</div>
+              </div>
+              `;
+        });
+      }
+      else if (res.status === 401) {
+        res.message.forEach(mes => {
+          htmlData += `
+              <div class="toast fade show" style="z-index: 999">
+                  <div class="toast-header bg-danger">
+                      <strong class="mr-auto"><i class="fa fa-globe"></i> Error</strong>
+                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                  </div>
+                  <div class="toast-body">${mes}</div>
+              </div>
+              `;
+        });
+      }
+      else if (res.status === 202) {
+        location.reload();
+        res.message.forEach(mes => {
+          htmlData += `
+              <div class="toast fade show" style="z-index: 999">
+                  <div class="toast-header bg-success">
+                      <strong class="mr-auto"><i class="fa fa-globe"></i> Success</strong>
+                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                  </div>
+                  <div class="toast-body">${mes}</div>
+              </div>
+              `;
+        });
+      }
+      var toastContainer = document.querySelector(".toastContainer");
+      toastContainer.innerHTML = htmlData;
+      $(".toast").toast();
+      var modalButton=document.querySelector('#modalButton');
+      modalButton.click();
+    });
+  </script>
 </body>
 
-</html> 
+</html>
