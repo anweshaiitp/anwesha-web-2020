@@ -7,35 +7,41 @@ html, body {
   width: 100%;
   overflow: hidden; */
 }
-
-.container {
-  padding: 1px 0;
-  min-height: 100vh;
-  /* height: 100%; */
-  width: 100%;
+body{
   background-image: url("../images/facts-bg.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.container {
+  padding: 1px 20px;
+  min-height: 100vh;
+  /* height: 100%; */
+  width: 100%;
+  /* background-image: url("../images/facts-bg.jpg");
+  background-size: cover;
+  background-position: center; */
   color: #fff;
   font-family: "Comfortaa", "Helvetica", sans-serif;
 }
 
 .login {
-  max-width: 350px;
+  max-width: 520px;
   min-height: 500px;
   margin: 30px auto;
-  padding: 1px 20px;
+  padding: 1px 30px;
   background-color: rgba(10,10,10,.68);
 }
 
 .login-icon-field {
   /* height: 250px; */
-  width: 100%;
+  width: 60%;
+  margin: auto;
   /*background-color: red;*/
 }
 
 .login-icon {
-  margin: 50px 65px;
+  /* margin: 50px 65px; */
 }
 
 .login-form {

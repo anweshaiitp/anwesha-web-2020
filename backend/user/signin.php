@@ -65,7 +65,7 @@ if (logged_in()) {
         <li><a class="indigo center" href="../../">Home</a></li>
         <li><a class="blue center" href="../../ca/ca.php">Campus Ambassador</a></li> -->
         <!-- <li><a class="red center" href="../../sponsors.html">Sponsors</a></li> -->
-        <!-- <li><a class="red center" href="./signup.php">Login/Signup</a></li>
+        <!-- <li><a class="red center" href="./signin.php">Login/Signup</a></li>
     </ul>
   </div> -->
 </body>

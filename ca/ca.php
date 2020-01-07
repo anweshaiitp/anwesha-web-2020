@@ -116,10 +116,10 @@
           Logout
           </a>
           <?php }else{ ?>
-          <a class="mostrandomshittyname" href="../backend/user/signup.php">
+          <a class="mostrandomshittyname" href="../backend/user/signin.php">
           Sign In
           </a>
-          <a class="mostrandomshittyname" href="../backend/user/casignup.php">
+          <a class="mostrandomshittyname" href="../backend/user/casignin.php">
           Sign Up
           </a>
           <a class="mostrandomshittyname" href="../pdfs/CA_rulebook.pdf" download>Download CA rulebook</a>
@@ -523,10 +523,10 @@
           Logout
           </a>
           <?php }else{ ?>
-          <a class="mostrandomshittyname" href="../backend/user/signup.php">
+          <a class="mostrandomshittyname" href="../backend/user/signin.php">
           Sign In
           </a>
-          <a class="mostrandomshittyname" href="../backend/user/casignup.php">
+          <a class="mostrandomshittyname" href="../backend/user/casignin.php">
           Sign Up
           </a>
           <a class="mostrandomshittyname" href="../pdfs/CA_rulebook.pdf" download>Download CA rulebook</a>
