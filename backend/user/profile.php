@@ -86,8 +86,8 @@
 					<?php if(!$registration){?> 
 					<a class="btn btn-info" href="./accommodation.php">Book Accommodation</a>
 					<?php }else{ ?>
-						Accommodation ooked for<?php echo $msg ?>.Check mail for further details
-						<a class="btn btn-info" href="./accommodation.php">Change Accommodation</a>
+						Accommodation booked for <?php echo $msg ?>.Check mail for further details
+						<a class="btn btn-info" href="./accommodation.php">Change Accommodation Dates</a>
 					<?php } ?> 
 				</h1>
 			</section>
@@ -122,65 +122,30 @@
 			</div> -->
 			<?php } ?>
 		</section>
-		<section class="card-details card-section">
+		<?php if($profile['isCA']){ ?>
+			<section class="card-details card-section">
 
-			<nav class="menu">
-				<article class="menu-item menu-item-active  alint">
-					Ranking
-				</article>
-			</nav>
+				<nav class="menu">
+					<article class="menu-item menu-item-active  alint">
+						Ranking
+					</article>
+				</nav>
 
-			<dl class="leaderboard" style="padding-right: 10px;">
-				<?php foreach($data as $ca){ ?>
-				<dt>
-					<article class="progress">
-						<section class="progress-bar" style="width: <?php echo ($ca['score']*100)/$hpoint;?>"></section>
-					</article>
-				</dt>
-				<dd>
-					<div class="leaderboard-name"><?php echo $ca['first_name']." ".$ca['last_name']." : ". $ca['anweshaid']; ?></div>
-					<div class="leaderboard-value"><?php echo $ca['score']; ?></div>
-				</dd>
-				<?php } ?>
-				
-				<!-- <dt>
-					<article class="progress">
-						<section class="progress-bar" style="width: 65%;"></section>
-					</article>
-				</dt>
-				<dd>
-					<div class="leaderboard-name">Kevin Johnson</div>
-					<div class="leaderboard-value">16.354</div>
-				</dd>
-				<dt>
-					<article class="progress">
-						<section class="progress-bar" style="width: 60%;"></section>
-					</article>
-				</dt>
-				<dd>
-					<div class="leaderboard-name">Glen Howie</div>
-					<div class="leaderboard-value">15.873</div>
-				</dd>
-				<dt>
-					<article class="progress">
-						<section class="progress-bar" style="width: 55%;"></section>
-					</article>
-				</dt>
-				<dd>
-					<div class="leaderboard-name">Mark Desa</div>
-					<div class="leaderboard-value">12.230</div>
-				</dd>
-				<dt>
-					<article class="progress">
-						<section class="progress-bar" style="width: 35%;"></section>
-					</article>
-				</dt>
-				<dd>
-					<div class="leaderboard-name">Martin Geiger</div>
-					<div class="leaderboard-value">10.235</div>
-				</dd> -->
-			</dl>
-		</section>
+				<dl class="leaderboard" style="padding-right: 10px;">
+					<?php foreach($data as $ca){ ?>
+					<dt>
+						<article class="progress">
+							<section class="progress-bar" style="width: <?php echo ($ca['score']*100)/$hpoint;?>"></section>
+						</article>
+					</dt>
+					<dd>
+						<div class="leaderboard-name"><?php echo $ca['first_name']." ".$ca['last_name']." : ". $ca['anweshaid']; ?></div>
+						<div class="leaderboard-value"><?php echo $ca['score']; ?></div>
+					</dd>
+					<?php } ?>
+				</dl>
+			</section>
+		<?php }?>
 	</div>
 	<!-- partial -->
 
