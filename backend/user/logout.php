@@ -12,4 +12,4 @@ if(isset($_COOKIE['anweshaid'])){
 	setcookie('qrcode','',time()-86400);
 }
 
-redirect("signup.php");
+redirect("signin.php");
