@@ -109,7 +109,7 @@
 										<a href="./">home</a>
 									</li>
 									<li>
-										<a href="./backend/user/registeruser.php">register</a>
+										<!--<li><a href="#">register</a>-->
 									</li>
 									<li>
 										<a class="current" href="events.html">events</a>
@@ -293,7 +293,7 @@
 						</div>
 						<div class="footer-content">
 							<ul>
-								<li><a href="">register</a></li>
+								<!-- <!--<li><a href="">register</a></li>--> -->
 								<li><a href="">events</a></li>
 								<li><a href="">accomodation</a></li>
 								<li><a href="">sponsors</a></li>
@@ -309,7 +309,7 @@
 						<div class="footer-content">
 							<ul>
 								<li><a href="">Campus Ambassador</a></li>
-								<li><a href="">FAQ</a></li>
+								<!-- <!--<li><a href="">FAQ</a></li>--> -->
 								<li><a href="">contact</a></li>
 								<li><a href="">team</a></li>
 								<li><a href="">multicity</a></li>
