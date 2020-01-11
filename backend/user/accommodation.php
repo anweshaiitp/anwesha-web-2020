@@ -40,8 +40,8 @@
       </div>
 	<form method="POST" id="accoForm signup-form" >
 		<div class="login-form">
-			<div class="username-row row" data-validate="Select choice">
-				<select class="input100" type="select" name="daySelect" id="daySelect">
+			<div class="username-row row" data-validate="Select choice" style="text-align:center;">
+				<select class="input100" type="select" name="daySelect" id="daySelect" style="text-align-last:center;">
 					<option value="day1">Day 1</option>
 					<option value="day2">Day 2</option>
 					<option value="day3">Day 3</option>
@@ -61,7 +61,7 @@
 					Book Accommodation &nbsp;&nbsp;<span class="spinner-border spinner-border-sm spinner" style="display:none" ></span>
 				</button>
 			</div>
-			<div id="login-button" >
+			<div id="login-button" style="text-align:center;">
 				<a href="./profile.php" style="color:hover: red">
 					Back
 				</a>
