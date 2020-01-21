@@ -70,7 +70,7 @@
 
       // Ignore urls and a string without colon delimiters
       if (
-        option.search(/^(http|https|ftp):\/\//) !== -1 ||
+        option.search(/^(https|https|ftp):\/\//) !== -1 ||
         option.search(':') === -1
       ) {
         break;

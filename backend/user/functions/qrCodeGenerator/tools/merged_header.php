@@ -12,7 +12,7 @@
  *
  * For full version, documentation, examples of use please visit:
  *
- *    http://phpqrcode.sourceforge.net/
+ *    https://phpqrcode.sourceforge.net/
  *    https://sourceforge.net/projects/phpqrcode/
  *    https://github.com/t0k4rt/phpqrcode
  *

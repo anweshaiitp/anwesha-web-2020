@@ -9,7 +9,7 @@
   }
 
   $id = $_GET['id'];
-  $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
+  $service_url = 'https://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
   // $service_url = 'https://celesta.org.in/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -81,13 +81,13 @@
 
   <div class="waveWrapper waveAnimation">
     <div class="waveWrapperInner bgTop">
-      <!-- <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div> -->
+      <!-- <div class="wave waveTop" style="background-image: url('https://front-end-noobs.com/jecko/img/wave-top.png')"></div> -->
     </div>
     <div class="waveWrapperInner bgMiddle">
-      <!-- <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div> -->
+      <!-- <div class="wave waveMiddle" style="background-image: url('https://front-end-noobs.com/jecko/img/wave-mid.png')"></div> -->
     </div>
     <div class="waveWrapperInner bgBottom">
-      <!-- <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div> -->
+      <!-- <div class="wave waveBottom" style="background-image: url('https://front-end-noobs.com/jecko/img/wave-bot.png')"></div> -->
     </div>
   </div>
 
@@ -130,7 +130,7 @@
               <button class="btn btn-success" style="color: #fff" id="regEvBtn" onclick="regEvFunc('<?php echo $event['ev_id'] ?>', '<?php echo $anweshaid ?>', '<?php echo $access_token ?>')"><span class="spinner-border spinner-border-sm spinner" style="display: none"></span> Register Event</button>
               <?php } else { ?>
               <?php if ($event_amount - ($amount_paid) > 0) { ?>
-                <form action="http://techprolabz.com/pay/dataFrom.php" method="POST">
+                <form action="https://techprolabz.com/pay/dataFrom.php" method="POST">
                     <input type="text" hidden value="<?php echo $ev->ev_id ?>" name="ev_id">
                     <input type="text" hidden value="<?php echo $anweshaid ?>" name="anweshaid">
                     <input type="text" hidden value="<?php echo $access_token ?>" name="access_token">
@@ -147,7 +147,7 @@
                 <button class="btn btn-success" style="color: #fff" id="regTeamEvBtn" data-toggle="modal" data-target="#regTeamEvModal">Register Team Event</button>
               <?php } else { ?>
                 <?php if ($event_amount - ($amount_paid) > 0) { ?>
-                  <form action="http://techprolabz.com/pay/dataFrom.php" method="POST">
+                  <form action="https://techprolabz.com/pay/dataFrom.php" method="POST">
                       <input type="text" hidden value="<?php echo $ev->ev_id ?>" name="ev_id">
                       <input type="text" hidden value="<?php echo $anweshaid ?>" name="anweshaid">
                       <input type="text" hidden value="<?php echo $access_token ?>" name="access_token">
@@ -258,7 +258,7 @@
       formData.append("member4", member4);
       formData.append("member5", member5);
       // let url="https://celesta.org.in/backend/admin/functions/reg_team_event.php";
-      let url="http://localhost/anwesha-web-2020/backend/admin/functions/reg_team_event.php";
+      let url="https://localhost/anwesha-web-2020/backend/admin/functions/reg_team_event.php";
       let res = await fetch(
         url,
         {

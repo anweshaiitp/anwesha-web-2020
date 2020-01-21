@@ -7,7 +7,7 @@
     // redirect("../comingsoon");
 ?>
 <!DOCTYPE html>
-<!--  This site was created in Webflow. http://www.webflow.com  -->
+<!--  This site was created in Webflow. https://www.webflow.com  -->
 <!--  Last Published: Thu Aug 16 2018 21:03:52 GMT+0000 (UTC)  -->
 <html data-wf-page="5b6f9f53681f89788ab55fa9" data-wf-site="5b6f9f53681f8929a8b55fa8">
 
@@ -93,7 +93,7 @@
             srcset="images/logo_favi.png 500w, images/logo_favi.png 1148w"
             sizes="(max-width: 479px) 100vw, (max-width: 767px) 82vw, (max-width: 991px) 30vw, 31vw"
             style="max-width: 100%;" class="image-9">
-          <!-- <a href="http://alejandraquintero.com/" target="_blank" class="hero-link w-inline-block">
+          <!-- <a href="https://alejandraquintero.com/" target="_blank" class="hero-link w-inline-block">
             <div>*Badge By <span class="text-span">Ale</span></div><img src="images/ale15x.png" width="34.5"
               class="image-6">
           </a> -->
@@ -217,7 +217,7 @@
         </div>
         <div class="w-col w-col-4"></div>
       </div>
-      <!-- <a href="http://latechno.moda/" target="_blank" class="right-side-link hero-link v2 w-inline-block">
+      <!-- <a href="https://latechno.moda/" target="_blank" class="right-side-link hero-link v2 w-inline-block">
         <div class="text-block-4 taller biggest">*Project Management By <span class="text-span">Dalia</span></div><img
           src="images/dalia15x.png" width="34.5" class="image-6">
       </a> -->
@@ -575,7 +575,7 @@
           function tweet() {
             var u = "https://codepen.io/waldo/project/full/XmPdyE/";
             var t = "Check out this @epicurrence website rebuild by @waldobroodryk #MadeInWebflow 😄";
-            window.open('http://twitter.com/share?url=' + encodeURIComponent(u) + '&text=' + encodeURIComponent(t), 'twitsharer', 'toolbar=0,status=0,width=626,height=436');
+            window.open('https://twitter.com/share?url=' + encodeURIComponent(u) + '&text=' + encodeURIComponent(t), 'twitsharer', 'toolbar=0,status=0,width=626,height=436');
             return false;
           } 
         </script>
