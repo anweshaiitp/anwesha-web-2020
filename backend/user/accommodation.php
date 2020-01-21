@@ -74,7 +74,7 @@
 <div class="toastContainer" style="position: absolute; top: 0; right: 0; margin: 20px; z-index: 99999;"></div>
 
 <!-- partial -->
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdn.jsdelivr.net/velocity/1.2.2/velocity.min.js'></script>
 <script src='https://cdn.jsdelivr.net/velocity/1.2.2/velocity.ui.min.js'></script>
 <script  src="./js/signup.js"></script>
@@ -112,7 +112,7 @@
 			formData.append("day2_day3", daySelect);
 		}
 		
-		let url="http://localhost/anwesha-web-2020/backend/user/functions/book_accomodation.php";
+		let url="https://localhost/anwesha-web-2020/backend/user/functions/book_accomodation.php";
 		let res = await fetch(
 			url,
 			{

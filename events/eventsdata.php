@@ -15,7 +15,7 @@ else{
 	$param="events";
 }
 
- // $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
+ // $service_url = 'https://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
   $service_url = 'https://anwesha.info/beta123/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -90,7 +90,7 @@ else{
 
 <body>
 	<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
 	<!--  Preloader Start

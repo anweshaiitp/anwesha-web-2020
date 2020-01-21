@@ -186,8 +186,8 @@ INSERT INTO `ca_users` (`id`, `email`, `first_name`, `last_name`, `validation_co
 (92, '1801me14@iitp.ac.in', 'Amartya', 'Mondal', 'e43b8de0d93b38eec3c9a700824b9477', 1, '1234567823', 'IIT Patna', 'ANW2089', 'https://anwesha.info/backend/user/assets/qrcodes/ANW2089.png', '2020-01-09 16:57:22', 'm', 0, NULL),
 (93, 'vsubhang4@gmail.com', 'Subhang', 'Vasireddy', '0', 1, '8978880947', 'IIT Patna', 'ANW2090', 'https://anwesha.info/backend/user/assets/qrcodes/ANW2090.png', '2020-01-09 18:13:52', 'm', 100, NULL),
 (94, 'iitpatnaanwesha@gmail.com', 'Fake ', 'entry', '0', 1, '1234567892', 'IITP', 'ANW2091', 'https://anwesha.info/backend/user/assets/qrcodes/ANW2091.png', '2020-01-09 18:21:38', 'm', 100, NULL),
-(95, 'tkartik340@gmail.com', 'kannu', 'singh', '0', 1, '1425412551', 'iitp', 'ANW2092', 'http://anwesha.info/backend/user/assets/qrcodes/ANW2092.png', '2020-01-09 18:48:30', 'm', 100, NULL),
-(96, 'intekhab085@gmail.com', 'Md Intekhab', 'Alam', '0', 1, '8002889586', 'Bakhtiyarpur College Of Engineering', 'ANW2093', 'http://anwesha.info/backend/user/assets/qrcodes/ANW2093.png', '2020-01-10 16:09:51', 'm', 100, NULL);
+(95, 'tkartik340@gmail.com', 'kannu', 'singh', '0', 1, '1425412551', 'iitp', 'ANW2092', 'https://anwesha.info/backend/user/assets/qrcodes/ANW2092.png', '2020-01-09 18:48:30', 'm', 100, NULL),
+(96, 'intekhab085@gmail.com', 'Md Intekhab', 'Alam', '0', 1, '8002889586', 'Bakhtiyarpur College Of Engineering', 'ANW2093', 'https://anwesha.info/backend/user/assets/qrcodes/ANW2093.png', '2020-01-10 16:09:51', 'm', 100, NULL);
 
 -- --------------------------------------------------------
 
@@ -350,8 +350,8 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `vali
 (245, 'Amartya', 'Mondal', '1801me14@iitp.ac.in', '8dd43ae0638e1ce2690e2e3cfa653923', 'e43b8de0d93b38eec3c9a700824b9477', 1, 0, '1234567823', 'IIT Patna', 'ANW2089', 'https://anwesha.info/backend/user/assets/qrcodes/ANW2089.png', 'admin', NULL, '2020-01-09 16:57:22', NULL, NULL, 'm', 'ebbf01cfc4cb55783417865428e678d4', 0, 0, 0, 0, 0, 0, NULL, 0),
 (246, 'Subhang', 'Vasireddy', 'vsubhang4@gmail.com', '42f749ade7f9e195bf475f37a44cafcb', '0', 1, 0, '8978880947', 'IIT Patna', 'ANW2090', 'https://anwesha.info/backend/user/assets/qrcodes/ANW2090.png', 'admin', NULL, '2020-01-09 18:13:52', NULL, NULL, 'm', '2ea502f84033ada48a74010f2ee52ac1', 0, 0, 0, 0, 0, 0, NULL, 0),
 (247, 'Fake ', 'entry', 'iitpatnaanwesha@gmail.com', '9a9aee1450bad99dc0a7eda49ba8ea8c', '0', 1, 0, '1234567892', 'IITP', 'ANW2091', 'https://anwesha.info/backend/user/assets/qrcodes/ANW2091.png', 'admin', NULL, '2020-01-09 18:21:38', NULL, NULL, 'm', NULL, 0, 0, 0, 0, 0, 0, NULL, 0),
-(248, 'kannu', 'singh', 'tkartik340@gmail.com', '2390d62a32a33beb3cbf320ce9290816', '0', 1, 0, '1425412551', 'iitp', 'ANW2092', 'http://anwesha.info/backend/user/assets/qrcodes/ANW2092.png', 'admin', NULL, '2020-01-09 18:48:30', NULL, NULL, 'm', '5369ab5d5b656c40d75494bca1553dbc', 0, 0, 0, 0, 0, 0, NULL, 0),
-(249, 'Md Intekhab', 'Alam', 'intekhab085@gmail.com', 'f039b4450571a8f6269066c42ae494a4', '0', 1, 0, '8002889586', 'Bakhtiyarpur College Of Engineering', 'ANW2093', 'http://anwesha.info/backend/user/assets/qrcodes/ANW2093.png', 'admin', NULL, '2020-01-10 16:09:51', NULL, NULL, 'm', 'c27b7d8f06dce4e4ddc13967d2815857', 0, 0, 0, 0, 0, 0, NULL, 0);
+(248, 'kannu', 'singh', 'tkartik340@gmail.com', '2390d62a32a33beb3cbf320ce9290816', '0', 1, 0, '1425412551', 'iitp', 'ANW2092', 'https://anwesha.info/backend/user/assets/qrcodes/ANW2092.png', 'admin', NULL, '2020-01-09 18:48:30', NULL, NULL, 'm', '5369ab5d5b656c40d75494bca1553dbc', 0, 0, 0, 0, 0, 0, NULL, 0),
+(249, 'Md Intekhab', 'Alam', 'intekhab085@gmail.com', 'f039b4450571a8f6269066c42ae494a4', '0', 1, 0, '8002889586', 'Bakhtiyarpur College Of Engineering', 'ANW2093', 'https://anwesha.info/backend/user/assets/qrcodes/ANW2093.png', 'admin', NULL, '2020-01-10 16:09:51', NULL, NULL, 'm', 'c27b7d8f06dce4e4ddc13967d2815857', 0, 0, 0, 0, 0, 0, NULL, 0);
 
 --
 -- Indexes for dumped tables
