@@ -33,14 +33,19 @@
         <label for="exampleFormControlSelect1">Choose The organizing Club</label></label>
         <select class="form-control" id="ev_club" name="ev_club" required>
         <option>TECH</option>
-        <option>NON-TECH</option>
+        <option>PHOTO</option>
         <option>CODING</option>
-        <option>MANAGEMENT</option>
+        <option>POSTER</option>
         <option>ROBOTICS</option>
         <option>DANCE</option>
         <option>MUSIC</option>
         <option>ARTS</option>
         <option>WELFARE</option>
+        <option>QUIZ</option>
+        <option>ONLINE</option>
+        <option>DRAMATICS</option>
+        <option>FASHION</option>
+        <option>FASHION</option>
         </select>
     </div>
 
