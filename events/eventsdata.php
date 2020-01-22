@@ -1,13 +1,3 @@
-<?php 
-    include("../backend/user/functions/init.php"); 
-    $loggedIn = logged_in();
-    $anweshaid=""; $access_token="";
-    if(logged_in()){
-      $anweshaid = $_SESSION['anweshaid'];
-      $access_token=$_SESSION['access_token'];
-    }
-?>
-
 <?php
 if(isset($_GET['data']))
   $param=$_GET['data'];
@@ -15,7 +5,7 @@ else{
 	$param="events";
 }
 
- // $service_url = 'https://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
+ //$service_url = 'https://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
   $service_url = 'https://anwesha.info/beta123/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -35,7 +25,7 @@ else{
     }
   }
   $filters="";
-  if($param=="events"){
+  if($param=="technical"){
     $filters='
       <li><a href="#" data-filter=".filter-TECH">TECH</a></li>
       <li><a href="#" data-filter=".filter-NON-TECH">NON-TECH</a></li>
@@ -43,10 +33,16 @@ else{
       <li><a href="#" data-filter=".filter-MANAGEMENT">MANAGEMENT</a></li>
       <li><a href="#" data-filter=".filter-ROBOTICS">ROBOTICS</a></li>
     ';
-  }elseif($param=="schoolevents"){
+  }elseif($param=="cultural"){
     $filters='
-      <li data-filter=".filter-TECH"><a href="#">TECH</a></li>
-      <li data-filter=".filter-NON-TECH"><a href="#">NON-TECH</a></li>
+      <li data-filter=".filter-TECH"><a href="#">MUSIC</a></li>
+      <li data-filter=".filter-NON-TECH"><a href="#">DANCE</a></li>
+      <li data-filter=".filter-ROBOTICS"><a href="#">ROBOTICS</a></li>
+    ';
+  }else{
+    $filters='
+      <li data-filter=".filter-TECH"><a href="#">ARTS</a></li>
+      <li data-filter=".filter-NON-TECH"><a href="#">WELFARE</a></li>
       <li data-filter=".filter-ROBOTICS"><a href="#">ROBOTICS</a></li>
     ';
   }
@@ -208,17 +204,6 @@ else{
 								<div class="portfolio-content">
 									<p><?php echo $e['ev_description']?></p>
 									<p><a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">view details</a></p>
-									<p>
-										<?php if($loggedIn){?>
-											<?php if (!$e['is_team_event']) { ?>
-												<a class="btn btn-info"  href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">Register Event</a>
-											<?php } else { ?>
-												<a class="btn btn-info"  href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">Register Team Event</a>
-											<?php } ?>
-										<?php }else{?>
-											<a class="btn" href="./../backend/user/signin.php?redirecteventsdata=<?php echo $param?>">Login to Register</a>
-										<?php }?>
-									</p>
 								</div>
 							</div>
 						</div>
