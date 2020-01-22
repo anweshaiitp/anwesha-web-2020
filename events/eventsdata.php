@@ -1,12 +1,16 @@
 <?php
-if(isset($_GET['data']))
+if(isset($_GET['data'])){
   $param=$_GET['data'];
+  if($param!="technical"&&$param!="cultural"&&$param!="awelfare"){
+	  $param="all";
+  }
+}
 else{
 	$param="events";
 }
 
- //$service_url = 'https://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
-  $service_url = 'https://anwesha.info/beta123/backend/admin/functions/events_api.php';
+ $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
+//   $service_url = 'https://anwesha.info/beta123/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
   $curl_response = curl_exec($curl);
@@ -19,33 +23,47 @@ else{
   $data = json_decode($curl_response, true);
   
   $events=array();
-  foreach($data as $d){
-    if($d['ev_category']==ucfirst($param) || $d['ev_category']==$param){
-      array_push($events,$d);
-    }
-  }
+	if($param!="all"){
+		foreach($data as $d){
+			if($d['ev_category']==ucfirst($param) || $d['ev_category']==$param){
+			array_push($events,$d);
+			}
+		}
+	}else{
+		foreach($data as $d){
+			$d['ev_club']=$d['ev_category'];
+			array_push($events,$d);
+		}
+	}
+
   $filters="";
   if($param=="technical"){
     $filters='
       <li><a href="#" data-filter=".filter-TECH">TECH</a></li>
-      <li><a href="#" data-filter=".filter-NON-TECH">NON-TECH</a></li>
+      <li><a href="#" data-filter=".filter-PHOTO">PHOTOGRAPHY</a></li>
       <li><a href="#" data-filter=".filter-CODING">CODING</a></li>
-      <li><a href="#" data-filter=".filter-MANAGEMENT">MANAGEMENT</a></li>
-      <li><a href="#" data-filter=".filter-ROBOTICS">ROBOTICS</a></li>
+      <li><a href="#" data-filter=".filter-QUIZ">QUIZ</a></li>
+	  <li><a href="#" data-filter=".filter-ROBOTICS">ROBOTICS</a></li>
+	  <li><a href="#" data-filter=".filter-POSTER">POSTER MAKING</a></li>
     ';
   }elseif($param=="cultural"){
     $filters='
-      <li data-filter=".filter-TECH"><a href="#">MUSIC</a></li>
-      <li data-filter=".filter-NON-TECH"><a href="#">DANCE</a></li>
-      <li data-filter=".filter-ROBOTICS"><a href="#">ROBOTICS</a></li>
+      <li data-filter=".filter-MUSIC"><a href="#">MUSIC</a></li>
+      <li data-filter=".filter-DANCE"><a href="#">DANCE</a></li>
+	  <li data-filter=".filter-DRAMATICS"><a href="#">DRAMATICS</a></li>
+	  <li data-filter=".filter-FASHION"><a href="#">FASHION</a></li>
+    ';
+  }elseif($param=="awelfare"){
+    $filters='
+      <li data-filter=".filter-ARTS"><a href="#">ARTS & CREATION</a></li>
+      <li data-filter=".filter-QUIZ"><a href="#">QUIZ & DEBATE</a></li>
+	  <li data-filter=".filter-ONLINE"><a href="#">ONLINE</a></li>
+	  <li data-filter=".filter-WELFARE"><a href="#">WELFARE</a></li>
     ';
   }else{
-    $filters='
-      <li data-filter=".filter-TECH"><a href="#">ARTS</a></li>
-      <li data-filter=".filter-NON-TECH"><a href="#">WELFARE</a></li>
-      <li data-filter=".filter-ROBOTICS"><a href="#">ROBOTICS</a></li>
-    ';
+	$filters='';
   }
+  
 ?>
 <!doctype html>
 <html lang="ZXX">
@@ -203,7 +221,7 @@ else{
 								<img src="https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg" alt="">
 								<div class="portfolio-content">
 									<p><?php echo $e['ev_description']?></p>
-									<p><a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">view details</a></p>
+									<p><a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">view details</a><?php echo $e['ev_club']?></p>
 								</div>
 							</div>
 						</div>
