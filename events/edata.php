@@ -11,7 +11,7 @@
 <?php
   $param=$_GET['data'];
 
-  $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
+  $service_url = 'https://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
   // $service_url = 'https://celesta.org.in/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -88,13 +88,13 @@
 
   <div class="waveWrapper waveAnimation">
     <div class="waveWrapperInner bgTop">
-      <!-- <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div> -->
+      <!-- <div class="wave waveTop" style="background-image: url('https://front-end-noobs.com/jecko/img/wave-top.png')"></div> -->
     </div>
     <div class="waveWrapperInner bgMiddle">
-      <!-- <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div> -->
+      <!-- <div class="wave waveMiddle" style="background-image: url('https://front-end-noobs.com/jecko/img/wave-mid.png')"></div> -->
     </div>
     <div class="waveWrapperInner bgBottom">
-      <!-- <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div> -->
+      <!-- <div class="wave waveBottom" style="background-image: url('https://front-end-noobs.com/jecko/img/wave-bot.png')"></div> -->
     </div>
   </div>
   <!--==========================

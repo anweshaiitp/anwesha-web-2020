@@ -323,7 +323,7 @@ function register_user($first_name,$last_name,$phone,$college,$email,$password,$
 		$anweshaid=getAnweshaId();
 		$validation_code=md5($anweshaid+microtime());
 		generateQRCode($anweshaid,$first_name,$last_name);
-		// $qrcode="http://localhost:8888/anwesha2k20-Webpage/backend/user/assets/qrcodes/".$anweshaid.".png";
+		// $qrcode="https://localhost:8888/anwesha2k20-Webpage/backend/user/assets/qrcodes/".$anweshaid.".png";
 		$qrcode="https://anwesha.info/backend/user/assets/qrcodes/".$anweshaid.".png";
 
 		//CONTENTS OF EMAIL

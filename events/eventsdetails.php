@@ -1,16 +1,10 @@
 <?php
   include("../backend/user/functions/init.php");
-  $loggedIn = logged_in();
-  $anweshaid = "";
-  $access_token = "";
-  if (logged_in()) {
-    $anweshaid = $_SESSION['anweshaid'];
-    $access_token = $_SESSION['access_token'];
-  }
+
 
   $id = $_GET['id'];
-  //$service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
-  $service_url = 'https://anwesha.info/beta123/backend/admin/functions/events_api.php';
+ $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
+//   $service_url = 'https://anwesha.info/beta123/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
   $curl_response = curl_exec($curl);
@@ -31,19 +25,6 @@
   $current_event=null;
   $event_amount=$event['ev_amount'];
   $amount_paid;
-  if(logged_in()){
-    $profile = user_details($anweshaid);
-    $user_registered_events = json_decode($profile['events_registered']);
-    foreach($user_registered_events as $e){
-      if($e->ev_id==$event['ev_id']){
-        $current_event=$e;
-      }
-    }
-    if($current_event != null){
-      $amount_paid = $current_event->amount;
-    }
-
-  }
 
 ?>
 <!doctype html>
@@ -77,7 +58,7 @@
 
 <body>
 	<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
 
@@ -220,19 +201,6 @@
 					<!-- <h3>Technology we used</h3> -->
 					<ul>
 						<li><button class="btn btn-info form-check-input" href="<?php echo $event['ev_rule_book_url'] ?>">Rulebook</button></li>
-						<?php if($loggedIn){ 
-                            if(!$current_event==null){
-                                if($event["is_team_event"]){?>
-                                <li><button class="btn btn-success form-check-input" style="color: #fff" id="regTeamEvBtn" data-toggle="modal" data-target="#regTeamEvModal">Register for Team Event</button></li>
-                                <?php } else{?>
-                                    <li><button class="btn btn-success form-check-input" style="color: #fff" id="regEvBtn" onclick="regEvFunc('<?php echo $event['ev_id'] ?>', '<?php echo $anweshaid ?>', '<?php echo $access_token ?>')"><span class="spinner-border spinner-border-sm spinner" style="display: none"></span> Register for Event</button></li>
-                                <?php }?>
-                            <?php }else{ ?>
-                                <li>Already registered for event</li>
-                            <?php }?>
-                        <?php }else{?>
-                            <li><button class="btn form-check-input" href="./../backend/user/signin.php?redirecteventsdetails=<?php echo $event['ev_id']?>">Login to Register</button></li>
-                        <?php }?>
 					</ul>
 				</div>
 				<!--single project info-->

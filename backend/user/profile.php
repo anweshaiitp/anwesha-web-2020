@@ -51,7 +51,7 @@
 	<meta charset="UTF-8">
 	<title>Anwesha | Profile</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+	<!-- <meta https-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
 	<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">

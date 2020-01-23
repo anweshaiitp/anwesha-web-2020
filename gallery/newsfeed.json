@@ -1,0 +1,23 @@
+{
+  "news": [
+    {
+      "news": "This is a sample news",
+      "img": "https://anwesha.info/img/logo.png"
+    },
+    {
+      "news": "This is a sample news",
+      "img": "https://anwesha.info/img/logo.png"
+    },
+    {
+      "news": "This is a sample news",
+      "img": ""
+    },
+    {
+      "news": "Lorem ipsum ma lora mjukhe nao"
+    },
+    {
+      "news": "This is a sample news",
+      "img": "https://anwesha.info/img/logo.png"
+    }
+  ]
+}
