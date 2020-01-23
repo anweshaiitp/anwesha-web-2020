@@ -113,7 +113,8 @@ h2.sub.header {
   top: 40px;
 }
 .card-info .search {
-  bottom: 40px;
+  top: 39px;
+  right: -240px;
 }
 
 
