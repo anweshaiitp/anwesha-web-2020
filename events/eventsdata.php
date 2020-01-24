@@ -1,14 +1,33 @@
 <?php
 if(isset($_GET['data'])){
   $param=$_GET['data'];
-  if($param!="technical"&&$param!="cultural"&&$param!="awelfare"){
-	  $param="all";
+  $isComp=1;
+  if($param=="pronite"||$param=="proshow"||$param=="informal"||$param=="pre-anwesha"){
+	  $isComp=0;
+  }
+  elseif($param!="technical"&&$param!="cultural"&&$param!="awelfare"){
+	header('location:../404.html');
   }
 }
 else{
-	$param="events";
+	header('location:../404.html');
 }
-
+$heading='';
+if($param=="technical"){
+	$heading="TECHNICAL";
+}elseif($param=="cultural"){
+	$heading="CULTURAL";
+}elseif($param=="awelfare"){
+	$heading="ARTS & WELFARE";
+}elseif($param=="pronite"){
+	$heading="PRONITES";
+}elseif($param=="proshow"){
+	$heading="PROSHOWS";
+}elseif($param=="informal"){
+	$heading="INFORMALS & WORKSHOPS";
+}elseif($param=="pre-anwesha"){
+	$heading="PRE-ANWEHSA EVENTS";
+}
  $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
 //   $service_url = 'https://anwesha.info/beta123/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
@@ -21,20 +40,13 @@ else{
   }
   curl_close($curl);
   $data = json_decode($curl_response, true);
-  
+//   var_dump($data);
   $events=array();
-	if($param!="all"){
-		foreach($data as $d){
-			if($d['ev_category']==ucfirst($param) || $d['ev_category']==$param){
-			array_push($events,$d);
-			}
-		}
-	}else{
-		foreach($data as $d){
-			$d['ev_club']=$d['ev_category'];
-			array_push($events,$d);
-		}
-	}
+  foreach($data as $d){
+  	if($d['ev_category']==ucfirst($param) || $d['ev_category']==$param){
+  	array_push($events,$d);
+  	}
+  }
 
   $filters="";
   if($param=="technical"){
@@ -48,20 +60,40 @@ else{
     ';
   }elseif($param=="cultural"){
     $filters='
-      <li data-filter=".filter-MUSIC"><a href="#">MUSIC</a></li>
-      <li data-filter=".filter-DANCE"><a href="#">DANCE</a></li>
-	  <li data-filter=".filter-DRAMATICS"><a href="#">DRAMATICS</a></li>
-	  <li data-filter=".filter-FASHION"><a href="#">FASHION</a></li>
+     <li><a href="#" data-filter=".filter-MUSIC">MUSIC</a></li>
+     <li><a href="#" data-filter=".filter-DANCE">DANCE</a></li>
+	 <li><a href="#" data-filter=".filter-DRAMATICS">DRAMATICS</a></li>
+	 <li><a href="#" data-filter=".filter-FASHION">FASHION</a></li>
     ';
   }elseif($param=="awelfare"){
     $filters='
-      <li data-filter=".filter-ARTS"><a href="#">ARTS & CREATION</a></li>
-      <li data-filter=".filter-QUIZ"><a href="#">QUIZ & DEBATE</a></li>
-	  <li data-filter=".filter-ONLINE"><a href="#">ONLINE</a></li>
-	  <li data-filter=".filter-WELFARE"><a href="#">WELFARE</a></li>
+     <li><a href="#" data-filter=".filter-ARTS">ARTS & CREATION</a></li>
+     <li><a href="#" data-filter=".filter-QUIZ">QUIZ & DEBATE</a></li>
+	 <li><a href="#" data-filter=".filter-ONLINE">ONLINE</a></li>
+	 <li><a href="#" data-filter=".filter-WELFARE">WELFARE</a></li>
     ';
-  }else{
-	$filters='';
+  }elseif($param=="pronite"){
+	$filters='
+	 <li><a href="#" data-filter=".filter-BOLLYWOOD">BOLLYWOOD NIGHT</a></li>
+     <li><a href="#" data-filter=".filter-CLASSIC">CLASSICAL NIGHT</a></li>
+	 <li><a href="#" data-filter=".filter-EDM">EDM NIGHT</a></li>
+	 <li><a href="#" data-filter=".filter-COMEDY">COMEDY NIGHT</a></li>
+	';
+  }elseif($param=="proshow"){
+	$filters='
+	 <li><a href="#" data-filter=".filter-GUEST">GUEST LECTURES</a></li>
+	';
+  }elseif($param=="informal"){
+	$filters='
+	 <li><a href="#" data-filter=".filter-GAME">GAMING ZONE</a></li>
+     <li><a href="#" data-filter=".filter-WORK">TECHNICAL WORKSHOPS</a></li>
+	';
+  }elseif($param=="pre-anwesha"){
+	$filters='
+	 <li><a href="#" data-filter=".filter-ALREADY_COMEDY">COMEDY EVENTS</a></li>
+	 <li><a href="#" data-filter=".filter-CULTURAL">CULTURAL EVENTS</a></li>
+	 <li><a href="../multicity.html">CULTURAL EVENTS</a></li>
+	';
   }
   
 ?>
@@ -100,9 +132,23 @@ else{
 	<!-- Scrollbar JS -->
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js"></script>
+		<style>
+		.portfolio-filter ul li a {
+			color: ivory;
+            font-family: inherit;
+		}.portfolio-filter ul li a:hover{
+           color: rgb(13, 170, 123);
+           font-family: inherit;
+		   font-weight: bold;
+		   font-size: 120%;
+		}
+		
+
+		</style>
+		<!---->	
 </head>
 
-<body>
+<body style="background-color:#121216">
 	<!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -131,35 +177,44 @@ else{
 					<div class="col-xl-10 col-lg-9 col-md-9">
 						<div class="main-menu f-right">
 							<nav id="mobile-menu">
-								<ul>
-                <li>
-										<a href="./">home</a>
+							<ul>
+									<li>
+										<a href="../">home</a>
 									</li>
 									<li>
-										<!--<li><a href="#">register</a>-->
+										<a href="https://www.townscript.com/e/anwesha-iit-patna-214401">register</a>
 									</li>
 									<li>
-										<a class="current" href="events.html">events</a>
+										<a href="../events.html">events</a>
 									</li>
 									<li>
-										<a href="contact.html">sponsors</a>
+										<a href="../competition.html">Competitions</a>
 									</li>
 									<li>
-										<a href="team.html">gallery</a>
+										<a href="../comingsoon/index.html">sponsors</a>
 									</li>
 									<li>
-										<a href="./ca/ca.php">CA</a>
+										<a href="../gallery.html">gallery</a>
+									</li>
+									<!-- <li>
+										<a  href="pronites.html">Pronites</a>
+									</li> -->
+									<li>
+										<a href="../ca/ca.php">CA</a>
 									</li>
 									<!-- dropdown menu-area-->
 									<li>
 										<a href="#" onclick="return false">more <i class="fas fa-angle-down"></i>
 										</a>
 										<ul class="dropdown">
-											<li><a href="./backend/user/accommodation.php">accomodation</a></li>
-											<li><a href="multicity.html">multicity</a></li>
-											<li><a href="portfolio2.html">FAQ</a></li>
-											<li><a href="team.html">our team</a></li>
-											<li><a href="contact.html">contact</a></li>
+											<li><a href="https://www.townscript.com/e/anwesha-iit-patna-214401">accomodation</a></li>
+											<li><a href="../multicity.html">multicity</a></li>
+											<!-- <li><a href="faq.html">FAQ</a></li> -->
+											<li><a href="../team.html">our team</a></li>
+											<!-- <li>
+												<a  href="pronites.html">Pronites</a>
+											</li> -->
+											<li><a href="../contact.html">contact</a></li>
 											<!-- <li><a href="single-blog.html">single blog</a></li>
 												<li><a href="single-blog2.html">single blog two</a></li>
 												<li><a href="team.html">our team</a></li>
@@ -173,40 +228,26 @@ else{
 						<!-- mobile menu-->
 						<div class="mobile-menu"></div>
 						<!--Search-->
-						<div class="search-box-area">
-							<div id="search" class="fade">
-								<a href="#" class="close-btn" id="close-search">
-									<em class="fa fa-times"></em>
-								</a>
-								<input placeholder="what are you looking for?" id="searchbox" type="search" />
-							</div>
-							<div class="search-icon-area">
-								<a href='#search'>
-									<i class="fa fa-search"></i>
-								</a>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
 	<!-- =========Portfolio Image Area=========== -->
-	<div class="portfolio-hero-banner">
-		<div class="portfolio-hero-text">
-		<header class="section-header sec_head">
-        <h1 class="section-title">Anwesha Events</h3>
-      </header>
-		</div>
+	<div class="jumbotron jumbotron-fluid" style="background-color:  #121216;max-height: 200px;border-bottom: 5px solid #1b8a5f;margin-top:80px;">
+		
+       <h1 class="text-title" style="text-align: center;color: rgb(125, 192, 136); "><?php echo $heading;?></h1>
+      	
 	</div>
-	<div class="portfolio-main-area">
+	<div class="portfolio-main-area" style="background-color:  #121216;height:auto;">
 		<div class="container">
 			<div class="row">
 				<!-- portfolio filtering button -->
-				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" ><!--style="background-color:rgb(61, 173, 79);"-->
 					<div class="portfolio-filter">
 						<ul>
-							<li class="active"><a href="#" data-filter="*"> All</a></li>
+							<li class="active"  style="color: blanchedalmond;"><a href="#" data-filter="*"> All</a></li>
 							<?php echo $filters; ?>
 						</ul>
 					</div>
@@ -226,7 +267,7 @@ else{
 							</div>
 						</div>
 						<div class="portfolio-titile">
-							<h3><?php echo $e['ev_name']?></h3>
+							<h3 style="color:#fff;font-family: inherit;"><?php echo $e['ev_name']?></h3>
 						</div>
 					</div>	
         		<?php } ?>
@@ -304,12 +345,12 @@ else{
 							<h3>quick links</h3>
 						</div>
 						<div class="footer-content">
-							<ul>
-								<!--<li><a href="">register</a></li>-->
-								<li><a href="">events</a></li>
-								<li><a href="">accomodation</a></li>
-								<li><a href="">sponsors</a></li>
-								<li><a href="">gallery</a></li>
+						<ul>
+								<li><a href="https://www.townscript.com/e/anwesha-iit-patna-214401">register</a></li>
+								<li><a href="../events.html">events</a></li>
+								<li><a href="https://www.townscript.com/e/anwesha-iit-patna-214401">accomodation</a></li>
+								<li><a href="../comingsoon/index.html">sponsors</a></li>
+								<li><a href="../gallery.html">gallery</a></li>
 							</ul>
 						</div>
 					</div>
@@ -320,11 +361,12 @@ else{
 						</div>
 						<div class="footer-content">
 							<ul>
-								<li><a href="">Campus Ambassador</a></li>
-								<!--<li><a href="">FAQ</a></li>-->
-								<li><a href="">contact</a></li>
-								<li><a href="">team</a></li>
-								<li><a href="">multicity</a></li>
+								<li><a href="../ca/ca.php">Campus Ambassador</a></li>
+                                <!--<li><a href="">FAQ</a></li>-->
+                                <li><a href="../competition.html">Competitions</a></li>
+								<li><a href="../contact.html">contact</a></li>
+								<li><a href="../team.html">team</a></li>
+								<li><a href="../multicity.html">multicity</a></li>
 							</ul>
 						</div>
 					</div>

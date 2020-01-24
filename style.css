@@ -2720,11 +2720,16 @@ footer p {
 	line-height: 25px;
 }
 
+
 .single-portfolio:hover .portfolio-content {
 	opacity: 1;
 	visibility: visible;
 	transform: scale(1)
 }
+.single-portfolio ul li a:hover {
+	color: #505262;
+}
+
 
 /*17.3 Portfolio Filtering*/
 .portfolio-filter {
@@ -2808,7 +2813,7 @@ footer p {
 
 .project-info {
 	background: #FFFFFF;
-	box-shadow: 0px 4px 50px rgba(196, 196, 196, 0.25);
+	
 }
 
 .project-info h3 {
@@ -2868,9 +2873,9 @@ footer p {
 	transition: .5s;
 }
 
-.project-technology ul li:hover {
+/* .project-technology ul li:hover {
 	background: linear-gradient(238.45deg, #42D2FF 3.32%, #88FF5F 98.6%);
-}
+} */
 
 /*18.3 Project  Slider*/
 .left-arrow-3 {
