@@ -32,17 +32,17 @@
   $filters="";
   if($param=="events"){
     $filters='
-      <li data-filter=".filter-TECH">TECH</li>
-      <li data-filter=".filter-NON-TECH">NON-TECH</li>
-      <li data-filter=".filter-CODING">CODING</li>
-      <li data-filter=".filter-MANAGEMENT">MANAGEMENT</li>
-      <li data-filter=".filter-ROBOTICS">ROBOTICS</li>
+     <li><a href="#" data-filter=".filter-TECH">TECH</li>
+     <li><a href="#" data-filter=".filter-NON-TECH">NON-TECH</li>
+     <li><a href="#" data-filter=".filter-CODING">CODING</li>
+     <li><a href="#" data-filter=".filter-MANAGEMENT">MANAGEMENT</li>
+     <li><a href="#" data-filter=".filter-ROBOTICS">ROBOTICS</li>
     ';
   }elseif($param=="schoolevents"){
     $filters='
-      <li data-filter=".filter-TECH">TECH</li>
-      <li data-filter=".filter-NON-TECH">NON-TECH</li>
-      <li data-filter=".filter-ROBOTICS">ROBOTICS</li>
+     <li><a href="#" data-filter=".filter-TECH">TECH</li>
+     <li><a href="#" data-filter=".filter-NON-TECH">NON-TECH</li>
+     <li><a href="#" data-filter=".filter-ROBOTICS">ROBOTICS</li>
     ';
   }
 ?>

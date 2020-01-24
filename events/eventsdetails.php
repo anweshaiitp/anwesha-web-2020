@@ -1,8 +1,10 @@
 <?php
   include("../backend/user/functions/init.php");
-
-
-  $id = $_GET['id'];
+	if(isset($_GET['id'])){
+		$id = $_GET['id'];
+	}else{
+		header("location:../404.html");
+	}
  $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
 //   $service_url = 'https://anwesha.info/beta123/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
@@ -15,16 +17,36 @@
   }
   curl_close($curl);
   $data = json_decode($curl_response, true);
-  $event;
+  $event=NULL;
   foreach ($data as $d) {
     if ($d['ev_id'] == $id) {
       $event = $d;
     }
   }
+  if($event==NULL){
+	header("location:../404.html");
+  }
 
   $current_event=null;
   $event_amount=$event['ev_amount'];
   $amount_paid;
+  $heading='';
+  $param=$event['ev_category'];
+	if($param=="technical"){
+		$heading="TECHNICAL";
+	}elseif($param=="cultural"){
+		$heading="CULTURAL";
+	}elseif($param=="awelfare"){
+		$heading="ARTS & WELFARE";
+	}elseif($param=="pronite"){
+		$heading="PRONITES";
+	}elseif($param=="proshow"){
+		$heading="PROSHOWS";
+	}elseif($param=="informal"){
+		$heading="INFORMALS & WORKSHOPS";
+	}elseif($param=="pre-anwesha"){
+		$heading="PRE-ANWEHSA EVENTS";
+	}
 
 ?>
 <!doctype html>
@@ -54,9 +76,16 @@
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="../style.css">
 	<link rel="stylesheet" href="../css/responsive.css">
+	<style>
+		.project-info h4{
+			color:#d5e7de;
+			font-family:font-family: initial;;
+
+		}
+		</style>
 </head>
 
-<body>
+<body style="background-color:#121216;">
 	<!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -72,7 +101,7 @@
 	<!--=========== Main Header Area ===============-->
 	<header id="home">
 		<div class="main-navigation-1">
-			<div class="container">
+			<div class="container" >
 				<div class="row">
 					<!-- logo-area-->
 					<div class="col-xl-2 col-lg-3 col-md-3">
@@ -84,36 +113,44 @@
 					<div class="col-xl-10 col-lg-9 col-md-9">
 						<div class="main-menu f-right">
 							<nav id="mobile-menu">
-								<ul>
-								<ul>
+							<ul>
 									<li>
-										<a href="./">home</a>
+										<a href="../">home</a>
 									</li>
 									<li>
-										<!--<li><a href="#">register</a>-->
+										<a href="https://www.townscript.com/e/anwesha-iit-patna-214401">register</a>
 									</li>
 									<li>
-										<a class="current" href="events.html">events</a>
+										<a href="../events.html">events</a>
 									</li>
 									<li>
-										<a href="contact.html">sponsors</a>
+										<a href="../competition.html">Competitions</a>
 									</li>
 									<li>
-										<a href="team.html">gallery</a>
+										<a href="../comingsoon/index.html">sponsors</a>
 									</li>
 									<li>
-										<a href="./ca/ca.php">CA</a>
+										<a href="../gallery.html">gallery</a>
+									</li>
+									<!-- <li>
+										<a  href="pronites.html">Pronites</a>
+									</li> -->
+									<li>
+										<a href="../ca/ca.php">CA</a>
 									</li>
 									<!-- dropdown menu-area-->
 									<li>
 										<a href="#" onclick="return false">more <i class="fas fa-angle-down"></i>
 										</a>
 										<ul class="dropdown">
-											<li><a href="./backend/user/accommodation.php">accomodation</a></li>
-											<li><a href="multicity.html">multicity</a></li>
-											<li><a href="portfolio2.html">FAQ</a></li>
-											<li><a href="team.html">our team</a></li>
-											<li><a href="contact.html">contact</a></li>
+											<li><a href="https://www.townscript.com/e/anwesha-iit-patna-214401">accomodation</a></li>
+											<li><a href="../multicity.html">multicity</a></li>
+											<!-- <li><a href="faq.html">FAQ</a></li> -->
+											<li><a href="../team.html">our team</a></li>
+											<!-- <li>
+												<a  href="pronites.html">Pronites</a>
+											</li> -->
+											<li><a href="../contact.html">contact</a></li>
 											<!-- <li><a href="single-blog.html">single blog</a></li>
 												<li><a href="single-blog2.html">single blog two</a></li>
 												<li><a href="team.html">our team</a></li>
@@ -127,34 +164,21 @@
 						<!-- mobile menu-->
 						<div class="mobile-menu"></div>
 						<!--Search-->
-						<div class="search-box-area">
-							<div id="search" class="fade">
-								<a href="#" class="close-btn" id="close-search">
-									<em class="fa fa-times"></em>
-								</a>
-								<input placeholder="what are you looking for?" id="searchbox" type="search" />
-							</div>
-							<div class="search-icon-area">
-								<a href='#search'>
-									<i class="fa fa-search"></i>
-								</a>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
 	<!-- =========Single Portfolio Image Area=========== -->
-	<div class="portfolio-hero-banner">
-		<div class="portfolio-hero-text">
-			<h1><?php echo $event["ev_category"] ?></h1>
-			<h3><?php echo $event["ev_name"] ?> </h3>
+	<div class="info">
+		<div class="jumbotron jumbotron-fluid" style="background-color:  #121216;max-height: 200px;border-bottom: 5px solid #1b8a5f;margin-top:80px;">
+		<h2 class="text-title" style="text-align: center;color: rgb(125, 192, 136);"><?php echo $heading ?></h2>
+			<h3 style="text-align: center;color: rgb(125, 192, 136); "><?php echo $event["ev_name"] ?> </h3>
 		</div>
 	</div>
 	<!-- =========Single Portfolio Details=========== -->
-	<div class="portfolio-details">
-		<div class="container">
+	<div class="portfolio-details" style="background-color:#121216;">
+		<div class="container" style="background-color:#121216;">
 			<div class="portfolio-details-box">
 				<div class="row">
 					<!--single project slider-->
@@ -165,18 +189,18 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-6 col-lg-6 col-md-12">
+					<div class="col-xl-6 col-lg-6 col-md-12" style="background-color:#16161b">
 						<!--single project name-->
 						<div class="project-name">
-							<h3><?php echo $event["ev_name"] ?></h3>
+							<h3 style="color: rgb(125, 192, 136);"><?php echo $event["ev_name"] ?></h3>
 						</div>
 						<!--single project description-->
 						<div class="project-description">
-							<h3>Description</h3>
-							<p><?php echo $event["ev_description"] ?></p>
+							<h5 style="color:  rgb(194, 224, 199);font-family:inherit;">Description</h5>
+							<p style="color: rgb(125, 192, 136);"><?php echo $event["ev_description"] ?></p>
                         </div>
-                        <div class="project-info">
-                            <h3>Event Info</h3>
+                        <div class="project-info" style="background-color:#16161b;">
+                            <h3 style="color:#205f40">Event Info</h3>
                             <h4>Organiser: <span ><?php echo $event['ev_organiser'] ?></span></h4>
                             <h4>Organizer's Phone: <span ><?php echo $event['ev_org_phone'] ?></span></h4>
                             <h4>Club: <span ><?php echo $event['ev_club'] ?></span></h4>
@@ -197,10 +221,10 @@
 				
 			<div class="col-xl-6">
 				<!--single project technology-->
-				<div class="project-technology form-check form-check-inline">
+				<div class="project-technology form-check form-check-inline" style="background-color:#121216">
 					<!-- <h3>Technology we used</h3> -->
 					<ul>
-						<li><button class="btn btn-info form-check-input" href="<?php echo $event['ev_rule_book_url'] ?>">Rulebook</button></li>
+						<li  style="background-color:#121216"><button class="btn btn-info form-check-input" href="<?php echo $event['ev_rule_book_url'] ?>">Rulebook</button></li>
 					</ul>
 				</div>
 				<!--single project info-->
@@ -260,12 +284,12 @@
 							<h3>quick links</h3>
 						</div>
 						<div class="footer-content">
-							<ul>
-								<!-- <!--<li><a href="">register</a></li>--> -->
-								<li><a href="">events</a></li>
-								<li><a href="">accomodation</a></li>
-								<li><a href="">sponsors</a></li>
-								<li><a href="">gallery</a></li>
+						<ul>
+								<li><a href="https://www.townscript.com/e/anwesha-iit-patna-214401">register</a></li>
+								<li><a href="../events.html">events</a></li>
+								<li><a href="https://www.townscript.com/e/anwesha-iit-patna-214401">accomodation</a></li>
+								<li><a href="../comingsoon/index.html">sponsors</a></li>
+								<li><a href="../gallery.html">gallery</a></li>
 							</ul>
 						</div>
 					</div>
@@ -276,11 +300,12 @@
 						</div>
 						<div class="footer-content">
 							<ul>
-								<li><a href="">Campus Ambassador</a></li>
-								<!-- <!--<li><a href="">FAQ</a></li>--> -->
-								<li><a href="">contact</a></li>
-								<li><a href="">team</a></li>
-								<li><a href="">multicity</a></li>
+								<li><a href="../ca/ca.php">Campus Ambassador</a></li>
+                                <!--<li><a href="">FAQ</a></li>-->
+                                <li><a href="../competition.html">Competitions</a></li>
+								<li><a href="../contact.html">contact</a></li>
+								<li><a href="../team.html">team</a></li>
+								<li><a href="../multicity.html">multicity</a></li>
 							</ul>
 						</div>
 					</div>

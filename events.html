@@ -2,7 +2,7 @@
 <html lang="ZXX">
 
 <head>
-	<title>Anwesha ♥ | IIT Patna</title>
+	<title>EVENTS | Anwesha ♥ | IIT Patna</title>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,6 +17,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,700,900&display=swap" rel="stylesheet">
 	<!-- Meanmenu css -->
 	<link rel="stylesheet" href="css/meanmenu.css">
+	<!-- Magnific css -->
+	<link rel="stylesheet" href="css/magnific-popup.min.css">
 	<!-- Animation CSS -->
 	<link href="css/aos.min.css" rel="stylesheet">
 	<!-- Slick Carousel CSS -->
@@ -24,32 +26,74 @@
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="css/responsive.css">
+	<!-- Scrollbar CSS -->
+	<link type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css"
+		rel="stylesheet" />
+	<!-- Scrollbar JS -->
+	<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js"></script>
+        <style>
+          .main-navigation {
+	       position: fixed;
+	       top: 0;
+	       left: 0;
+	       right: 0;
+	       width: 100%;
+           z-index: 99;
+        	background: linear-gradient(270deg, #00B0E7 0%, #75F389 100%);
+	        -webkit-box-shadow: 0px 0px 4px #016946;
+	       box-shadow: 0px 0px 50px #60636242;	      
+}.item-text ul li a { 
+    color: honeydew;
+    font-family: inherit;
+    
+}.portfolio-titile.text-center a {
+    color: ivory;
+    font-family: inherit;
+}.portfolio-titile.text-center a:hover {
+    color: rgb(13, 131, 58);
+    font-family: inherit;
+    font-weight: bold;
+}.item-text ul li a:hover{
+    color: rgb(13, 170, 123);
+    font-family: inherit;
+	font-weight: bold;
+	font-size: 120%;
+
+}.portfolio-item-content{
+	min-height: 140px;
+}.col-xl-4.col-lg-4.col-md-6.col-sm-6.portfolio-headmove{
+	padding-bottom: 50px;
+}
+
+        
+        </style>
 </head>
 
-<body>
+<body style="background-color: #121216;">
 	<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-
 
 	<!--  Preloader Start
 ========================-->
-
 	<div id='preloader'>
 		<div id='status'>
+			<img class="fade-in-fade-out" src='img/favicon.png' alt='LOADING....!!!!!' />
 			<img src='img/loading.gif' alt='LOADING....!!!!!' />
 		</div>
 	</div>
 
-	<!--=========== Main Header Area ===============-->
+	<!--=========== Main Header area ===============-->
 	<header id="home">
-		<div class="main-navigation-1">
+		<div class="main-navigation ">
 			<div class="container">
 				<div class="row">
 					<!-- logo-area-->
 					<div class="col-xl-2 col-lg-3 col-md-3">
 						<div class="logo-area">
-							<a href="./"><img src="img/logo.png" alt="enventer"></a>
+							<a href="./"><img src="img/logo.png" alt="Anwesha"></a>
 						</div>
 					</div>
 					<!-- mainmenu-area-->
@@ -67,14 +111,17 @@
 										<a class="current" href="events.html">events</a>
 									</li>
 									<li>
-										<a href="sponsors.html">sponsors</a>
+										<a href="competition.html">Competitions</a>
+									</li>
+									<li>
+										<a href="./comingsoon/index.html">sponsors</a>
 									</li>
 									<li>
 										<a href="gallery.html">gallery</a>
 									</li>
-									<li>
+									<!-- <li>
 										<a  href="pronites.html">Pronites</a>
-									</li>
+									</li> -->
 									<li>
 										<a href="./ca/ca.php">CA</a>
 									</li>
@@ -83,14 +130,13 @@
 										<a href="#" onclick="return false">more <i class="fas fa-angle-down"></i>
 										</a>
 										<ul class="dropdown">
-											<li><a href="./backend/user/accommodation.php">accomodation</a></li>
+											<li><a href="https://www.townscript.com/e/anwesha-iit-patna-214401">accomodation</a></li>
 											<li><a href="multicity.html">multicity</a></li>
-											<!-- <li><a href="portfolio2.html">FAQ</a></li> -->
+											<!-- <li><a href="faq.html">FAQ</a></li> -->
 											<li><a href="team.html">our team</a></li>
-											<li>
+											<!-- <li>
 												<a  href="pronites.html">Pronites</a>
-											</li>
-
+											</li> -->
 											<li><a href="contact.html">contact</a></li>
 											<!-- <li><a href="single-blog.html">single blog</a></li>
 												<li><a href="single-blog2.html">single blog two</a></li>
@@ -123,74 +169,127 @@
 			</div>
 		</div>
 	</header>
-	<!-- =========Portfolio Image Area=========== -->
+	<!-- =========Header Content Area=========== -->
+	<section>
+		<div class="home-about-area" style="background-color: #121614;">
+			<div class="container">
+				
+					<!--about image-->
+					
+					<!--about text-->
+					<div class="jumbotron jumbotron-fluid" style="border-radius: 20px;background-color: #17171d;border-bottom: 5px solid #1b8a5f ;border-right: 3px solid #1b8a5f ;padding-right: 8px;">
+						<div class="section-heading-1 home-about-text">
+							<!-- <h4>About US</h4> -->
+							<h3 class="text-title" style="text-align: center;color: rgb(125, 192, 136);">Categories</h3>
+							<!-- <div class="section-button">
+								<a href="#">Read More</a>
+							</div> -->
+							
+						</div>
+					</div>
+			</div>
+		</div>
+	</section>
 
-	<div class="portfolio-main-area">
+	<!-- =========About Us Area=========== -->
+	<section>
+	<div class="portfolio-main-area" style="background-color: #121216;padding-top: 30px;">
 		<div class="container">
 			<!--portfolio intro-->
-			<div class="portfolio-intro">
-				<p>Events Categories</p>
-			</div>
+
 			<div class="row">
 				<!--single portfolio-->
-				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 portfolio-headmove">
-					<div class="single-portfolio">
-						<div class="portfolio-image">
-							<a href="./events/eventsdata.php?data=technical">
-								<img src="img/kanpur.jpg" alt="">
-							</a>
+				<a href="./events/eventsdata.php?data=pronite"><div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 portfolio-headmove">
+					<div class="single-portfolio-item">
+					  <img src="img/kanpur.jpg" alt="">
+					  <div class="portfolio-item-content" style="height: 145px;background-color: #121216;opacity: 88%;">
+						<div class="item-text">
+							<ul >
+								<li><a href="" >Bollywood Night</a></li>
+                                <li><a href="">Classical Night</a></li>
+                                <li><a href="">EDM Night</a></li>
+                                <li><a href="">Comedy Night</a></li>
+	                        
+							</ul>
 						</div>
 					</div>
-					<div class="portfolio-titile text-center" style="padding: 5px 0 20px 0;">
-						<a href="./events/eventsdata.php?data=technical" class="btn btn-default">Technical Events</a>
-						<a href="./events/eventsdata.php?data=technical" class="btn btn-primary btn-sm">View all</a>
-					</div>
-				</div>
+					  <div class="portfolio-titile text-center" style="padding: 5px 0 20px 0;">
+						  <a href="./events/eventsdata.php?data=pronite" class="btn btn-default" >PRONITES</a>
+					  </div>
+				  </div>
+			  </div></a>
 				<!--single portfolio-->
-				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 portfolio-headmove">
-					<div class="single-portfolio">
-						<div class="portfolio-image">
-							<a href="./events/eventsdata.php?data=cultural">
-								<img src="img/kanpur.jpg" alt="">
-							</a>
+				<a href="./events/eventsdata.php?data=proshow"><div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 portfolio-headmove">
+					<div class="single-portfolio-item">
+					  <img src="img/kanpur.jpg" alt="" >
+					  <div class="portfolio-item-content" style="height: 80px;background-color: #121216;opacity: 88%;">
+						<div class="item-text">
+							<ul >
+								<li><a href="" >Guest Lectures</a></li>
+                                
+							</ul>
 						</div>
 					</div>
-					<div class="portfolio-titile text-center" style="padding: 5px 0 20px 0;">
-						<a href="./events/eventsdata.php?data=cultural" class="btn btn-default">Cultural Events</a>
-						<a href="./events/eventsdata.php?data=cultural" class="btn btn-primary btn-sm">View all</a>
-					</div>
-				</div>
+					  <div class="portfolio-titile text-center" >
+						  <a href="./events/eventsdata.php?data=proshow" class="btn btn-default" >PROSHOWS</a>
+					  </div>
+				  </div>
+			  </div></a>
 				<!--single portfolio-->
-				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 portfolio-headmove">
-					<div class="single-portfolio">
-						<div class="portfolio-image">
-							<a href="./events/eventsdata.php?data=awelfare">
-								<img src="img/kanpur.jpg" alt="">
-							</a>
+				<a href="./events/eventsdata.php?data=informal"><div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 portfolio-headmove">
+					<div class="single-portfolio-item">
+					  <img src="img/kanpur.jpg" alt="">
+					  <div class="portfolio-item-content" style="height: 100px;background-color: #121216;opacity: 88%;">
+						<div class="item-text">
+							<ul >
+								<li><a href="">Gaming Zone</a></li>
+                                <li><a href="">Technical Workshops</a></li>
+                                
+							</ul>
 						</div>
 					</div>
-					<div class="portfolio-titile text-center" style="padding: 5px 0 20px 0;">
-						<a href="./events/eventsdata.php?data=awelfare" class="btn btn-default">Arts and Welfare</a>
-						<a href="./events/eventsdata.php?data=awelfare" class="btn btn-primary btn-sm">View all</a>
+					  <div class="portfolio-titile text-center" style="padding: 5px 0 20px 0;">
+						  <a href="./events/eventsdata.php?data=informal" class="btn btn-default" >INFORMALS and WORKSHOPS</a>
+					  </div>
+				  </div>
+			  </div></a>
+				<!--single portfolio-->
+				<a href="./events/eventsdata.php?data=pre-anwesha"><div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 portfolio-headmove">
+					<div class="single-portfolio-item">
+					  <img src="img/kanpur.jpg" alt="" >
+					  <div class="portfolio-item-content" style="height: 80px;background-color: #121216;opacity: 88%;">
+						<div class="item-text">
+							<ul >
+								<li><a href="" >Cultural Events</a></li>
+                                
+							</ul>
+						</div>
 					</div>
-				</div><!--single portfolio-->
+					  <div class="portfolio-titile text-center" style="padding: 5px 0 20px 0;">
+						  <a href="./events/eventsdata.php?data=pre-anwesha" class="btn btn-default" >PRE-ANWESHA</a>
+					  </div>
+				  </div>
+			  </div></a>
+				<!--single portfolio-->
 
-				<!--single portfolio-->
 			</div>
 		</div>
 	</div>
+</section>
+
+
 	<!-- =========Call to Action=========== -->
 	<div class="callto-action">
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-8 col-lg-8 col-md-8 col-sm-7">
 					<div class="callto-action-text">
-						<h5>Like what you see? <span>Let’s work</span> </h5>
+						<h5>Like what you see? <span>Any more queries? </span> </h5>
 					</div>
 				</div>
 				<div class="col-xl-4 col-lg-4 col-md-4 col-sm-5">
 					<div class="callto-action-btn">
-						<a href="contact.html">contact us</a>
+						<a href="">contact us</a>
 					</div>
 				</div>
 			</div>
@@ -215,7 +314,7 @@
 								<li><a class="footer-socials" href="https://www.facebook.com/anwesha.iitpatna/"><i
 											class="fab fa-facebook"></i></a></li>
 								<li><a class="footer-socials" href="https://www.instagram.com/anwesha.iitp/?hl=en"><i
-											class="fab fa-instagram"></i></a></li>
+											class="fab fa-instagram"></i></a></li>								
 								<li><a class="footer-socials"
 										href="https://www.youtube.com/channel/UCVVdnGvmkm-Z9v9IKAq77JQ"><i
 											class="fab fa-youtube"></i></a></li>
@@ -229,10 +328,10 @@
 						</div>
 						<div class="footer-content">
 							<ul>
-								<!--<li><a href="">register</a></li>-->
+								<li><a href="https://www.townscript.com/e/anwesha-iit-patna-214401">register</a></li>
 								<li><a href="events.html">events</a></li>
-								<li><a href="./backend/user/accommodation.php">accomodation</a></li>
-								<li><a href="sponsors.html">sponsors</a></li>
+								<li><a href="https://www.townscript.com/e/anwesha-iit-patna-214401">accomodation</a></li>
+								<li><a href="./comingsoon/index.html">sponsors</a></li>
 								<li><a href="gallery.html">gallery</a></li>
 							</ul>
 						</div>
@@ -245,9 +344,10 @@
 						<div class="footer-content">
 							<ul>
 								<li><a href="./ca/ca.php">Campus Ambassador</a></li>
-								<!--<li><a href="">FAQ</a></li>-->
+                                <!--<li><a href="">FAQ</a></li>-->
+                                <li><a href="competition.html">Competitions</a></li>
 								<li><a href="contact.html">contact</a></li>
-								<li><a href="./comingsoon/index.html">team</a></li>
+								<li><a href="team.html">team</a></li>
 								<li><a href="multicity.html">multicity</a></li>
 							</ul>
 						</div>
@@ -298,6 +398,13 @@
 	<script src="js/scrollUp.js"></script>
 	<!-- Main Js -->
 	<script src="js/main.js"></script>
+	<!-- <script>
+	document.addEventListener("DOMContentLoaded", function() {
+		//The first argument are the elements to which the plugin shall be initialized
+		//The second argument has to be at least a empty object or a object with your desired options
+		OverlayScrollbars(document.querySelectorAll("body"), { });
+	});
+	</script> -->
 </body>
 
 </html>

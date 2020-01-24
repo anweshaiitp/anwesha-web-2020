@@ -26,6 +26,10 @@
         <option>technical</option>
         <option>cultural</option>
         <option>awelfare</option>
+        <option>pronite</option>
+        <option>proshow</option>
+        <option>informal</option>
+        <option>pre-anwesha</option>
         </select>
     </div>
 
@@ -45,7 +49,15 @@
         <option>ONLINE</option>
         <option>DRAMATICS</option>
         <option>FASHION</option>
-        <option>FASHION</option>
+        <option>BOLLYWOOD</option>
+        <option>CLASSIC</option>
+        <option>EDM</option>
+        <option>COMEDY</option>
+        <option>GUEST</option>
+        <option>GAME</option>
+        <option>WORK</option>
+        <option>ALREADY_COMEDY</option>
+        <option>CULTURAL</option>
         </select>
     </div>
 
