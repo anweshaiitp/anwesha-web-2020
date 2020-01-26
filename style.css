@@ -231,7 +231,7 @@ ul {
 #preloader {
 	position: fixed;
 	top: 0;
-	left: 0;
+	left: 0%;
 	right: 0;
 	bottom: 0;
 	background-color: #F7F7F7;
@@ -257,19 +257,25 @@ ul {
 #status {
 	position: absolute;
 	left: 50%;
-	top: 50%;
+	top: 30%;
 	width: 150px;
 	height: 150px;
 	padding: 0;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	z-index: 99999999999999;
+	text-align:center;
 }
 
 #status img {
 	height: 150px;
 	width: 150px;
 }
+.fade-in-fade-out{
+	height: 320px;
+	width: 320px;
+}
+
 
 /*1.2 Section Heading*/
 
