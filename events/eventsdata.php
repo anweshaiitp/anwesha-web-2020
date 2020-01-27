@@ -64,6 +64,7 @@ if($param=="technical"){
      <li><a href="#" data-filter=".filter-DANCE">DANCE</a></li>
 	 <li><a href="#" data-filter=".filter-DRAMATICS">DRAMATICS</a></li>
 	 <li><a href="#" data-filter=".filter-FASHION">FASHION</a></li>
+	 <li><a href="#" data-filter=".filter-ARTS">ARTS & CREATION</a></li>
     ';
   }elseif($param=="awelfare"){
     $filters='
@@ -92,7 +93,7 @@ if($param=="technical"){
 	$filters='
 	 <li><a href="#" data-filter=".filter-ALREADY_COMEDY">COMEDY EVENTS</a></li>
 	 <li><a href="#" data-filter=".filter-CULTURAL">CULTURAL EVENTS</a></li>
-	 <li><a href="../multicity.html">CULTURAL EVENTS</a></li>
+	 <li><a href="../multicity.html">MULTICITY</a></li>
 	';
   }
   
@@ -259,10 +260,10 @@ if($param=="technical"){
 					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 filter-<?php echo $e['ev_club']?> default-margin-mt portfolio-headmove">
 						<div class="single-portfolio">
 							<div class="portfolio-image">
-								<img src="https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg" alt="">
+								<img src="<?php echo $e['ev_poster_url']?>" alt="">
 								<div class="portfolio-content">
 									<p><?php echo $e['ev_description']?></p>
-									<p><a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">view details</a><?php echo $e['ev_club']?></p>
+									<p><a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">view details</a></p>
 								</div>
 							</div>
 						</div>

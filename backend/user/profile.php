@@ -83,12 +83,6 @@
 					<a href="./assets/qrcodes/<?php echo $anweshaid; ?>.png" download="<?php echo $anweshaid;?>.png" target="_blank" style="text-decoration:none;color:#fff;">
 					DOWNLOAD QR CODE</a>
 					</h2>
-					<?php if(!$registration){?> 
-					<a class="btn btn-info" href="./accommodation.php">Book Accommodation</a>
-					<?php }else{ ?>
-						Accommodation booked for <?php echo $msg ?>.Check mail for further details
-						<a class="btn btn-info" href="./accommodation.php">Change Accommodation Dates</a>
-					<?php } ?> 
 				</h1>
 			</section>
 			<?php if($profile['isCA']){ ?>
