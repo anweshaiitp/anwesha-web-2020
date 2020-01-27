@@ -112,8 +112,8 @@
     </div>
 
     <div class="form-group">
-        <label for="event_organizer">Map URL of Venue</label>
-        <input type="text" class="form-control" id="map_url" name="map_url" placeholder="Map url of the venue" >
+        <label for="event_organizer">GDOC Link</label>
+        <input type="text" class="form-control" id="map_url" name="map_url" placeholder="Link for gdoc for event registration" >
     </div>
 
     <div class="form-group">
