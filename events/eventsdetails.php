@@ -185,7 +185,7 @@
 					<div class="col-xl-6 col-lg-6 col-md-12">
 						<div class="single-project-slider">
 							<div class="portfolio-screenshot">
-								<img src="https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg" alt="">
+								<img src="<?php echo $e['ev_poster_url']?>" alt="">
 							</div>
 						</div>
 					</div>
@@ -208,7 +208,6 @@
                             <h4>Venue: <span ><?php echo $event['ev_venue'] ?></span></h4>
                             <h4>Start Time: <span ><?php echo $event['ev_start_time'] ?></span></h4>
                             <h4>End Time: <span ><?php echo $event['ev_end_time'] ?></span></h4>
-                            <h4>Event Prize Money:  <span ><?php echo $event['ev_prize'] ?></span></h4>
                             <?php if($event["is_team_event"]){?>
                                 <h4>Maximum Team Strength: <span><?php echo $event['team_members'] ?></span></h5>
                             <?php } ?>
@@ -225,6 +224,7 @@
 					<!-- <h3>Technology we used</h3> -->
 					<ul>
 						<li  style="background-color:#121216"><button class="btn btn-info form-check-input" href="<?php echo $event['ev_rule_book_url'] ?>">Rulebook</button></li>
+						<li  style="background-color:#121216"><button class="btn btn-info form-check-input" href="<?php echo $event['map_url'] ?>">Register</button></li>
 					</ul>
 				</div>
 				<!--single project info-->
