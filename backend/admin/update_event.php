@@ -134,11 +134,13 @@
     <div class="form-group">
         <label for="exampleFormControlFile1">Event Poster</label>
         <input type="file" class="form-control-file" id="event_poster" name="event_poster"  accept="image/gif, image/jpeg, image/png, image/jpg">
+        <?php echo $event['ev_poster_url']?>
     </div>
 
     <div class="form-group">
         <label for="exampleFormControlFile1">Event RuleBook</label>
         <input type="file" class="form-control-file" id="event_rulebook" name="event_rulebook" accept="application/pdf">
+        <?php echo $event['ev_rule_book_url']?>
     </div>
 
    <button type="submit" name="update_event" id="update_event" class="btn btn-primary">Update Event</button>
