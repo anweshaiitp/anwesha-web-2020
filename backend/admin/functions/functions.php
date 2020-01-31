@@ -761,7 +761,7 @@ function new_register_user($first_name,$last_name,$phone,$college,$email,$passwo
 	$password=md5($password);
 	$anweshaid=getanweshaid();
 	generateQRCode($anweshaid,$first_name,$last_name);
-	$qrcode="https://celesta.org.in//backend/user/assets/qrcodes/".$anweshaid.".png";
+	$qrcode="https://anwesha.info//backend/user/assets/qrcodes/".$anweshaid.".png";
 
 	//CONTENTS OF EMAIL
 	$subject="Celesta Account";
@@ -1137,7 +1137,7 @@ function updateEvent(){
 			
 			$target_poster_file=$target_poster."$eventid".".jpg";
 			if(move_uploaded_file($_FILES["event_poster"]["tmp_name"],$target_poster_file)){
-				$poster_url ="https://celesta.org.in/backend/admin".substr($target_poster_file, 1);
+				$poster_url ="https://anwesha.info/backend/admin".substr($target_poster_file, 1);
 				$sql1= "UPDATE events SET ev_poster_url='$poster_url'  WHERE ev_id='$eventid'";
 				$result1=query($sql1);
 				confirm($result1);
@@ -1149,7 +1149,7 @@ function updateEvent(){
 			
 			$target_rulebook_file=$target_rulebook."$eventid".".pdf";
 			if(move_uploaded_file($_FILES["event_rulebook"]["tmp_name"],$target_rulebook_file)){
-				$rulebook_url ="https://celesta.org.in/backend/admin".substr($target_rulebook_file, 1);
+				$rulebook_url ="https://anwesha.info/backend/admin".substr($target_rulebook_file, 1);
 				$sql1= "UPDATE events SET ev_rule_book_url='$rulebook_url'  WHERE ev_id='$eventid'";
 				$result1=query($sql1);
 				confirm($result1);
