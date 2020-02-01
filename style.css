@@ -271,11 +271,9 @@ ul {
 	height: 150px;
 	width: 150px;
 }
-#loading{
-	position: absolute;
-	top:200%;
-	
-	
+.fade-in-fade-out{
+	height: 320px;
+	width: 320px;	
 }
 
 
@@ -2734,7 +2732,9 @@ footer p {
 	visibility: visible;
 	transform: scale(1)
 }
-
+.single-portfolio ul li a:hover {
+	color: #505262;
+}
 /*17.3 Portfolio Filtering*/
 .portfolio-filter {
 	text-align: center;
@@ -2817,7 +2817,7 @@ footer p {
 
 .project-info {
 	background: #FFFFFF;
-	box-shadow: 0px 4px 50px rgba(196, 196, 196, 0.25);
+	/* box-shadow: 0px 4px 50px rgba(196, 196, 196, 0.25); */
 }
 
 .project-info h3 {

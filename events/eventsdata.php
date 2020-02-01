@@ -29,7 +29,7 @@ if($param=="technical"){
 	$heading="PRE-ANWEHSA EVENTS";
 }
  $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
-//   $service_url = 'https://anwesha.info/beta123/backend/admin/functions/events_api.php';
+ $service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
   $curl_response = curl_exec($curl);
@@ -324,7 +324,7 @@ if($param=="technical"){
 							<a href="#">
 								<img src="../img/logo.png" alt="">
 							</a>
-							<p> Think. Dream. Live. Anwesha. <br> Every spell is a journey.</p>
+							<p> Think. Dream. Live. Anwesha. <br>  A Reflection of Fond Remembrances.</p>
 						</div>
 						<!--footer social-->
 						<div class="social">
