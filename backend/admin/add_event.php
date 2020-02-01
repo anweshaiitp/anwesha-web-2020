@@ -113,7 +113,11 @@
 
     <div class="form-group">
         <label for="event_organizer">GDOC Link</label>
-        <input type="text" class="form-control" id="map_url" name="map_url" placeholder="Link for gdoc for event registration" >
+        <input type="text" class="form-control" id="register_url" name="register_url" placeholder="Link for gdoc for event registration" >
+    </div>
+    <div class="form-group">
+        <label for="event_organizer">Map URL</label>
+        <input type="text" class="form-control" id="map_url" name="map_url" placeholder="Map URL" >
     </div>
 
     <div class="form-group">

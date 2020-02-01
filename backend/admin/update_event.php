@@ -29,29 +29,42 @@
         <label for="exampleFormControlSelect1">Category</label>
         <select class="form-control" id="event_category" name="event_category" required>
         <option selected="selected"><?php echo $event['ev_category']?></option>
-        <option>Eventsall</option>
-        <option>Eventscollege</option>
-        <option>Eventsschool</option>
-        <option>Ozone</option>
-        <option>Schoolevents</option>
-        <option>Workshops</option>
-        <option>Exhibitions</option>
-        <option>Pronites</option>
-        <option>Guesttalks</option>
+        <option>technical</option>
+        <option>cultural</option>
+        <option>awelfare</option>
+        <option>pronite</option>
+        <option>proshow</option>
+        <option>informal</option>
+        <option>pre-anwesha</option>
         </select>
     </div>
 
     <div class="form-group">
         <label for="exampleFormControlSelect1">Choose The organizing Club</label></label>
         <select class="form-control" id="ev_club" name="ev_club" required>
-        <option selected="selected"><?php echo $event['ev_club']?></option>
         <option>TECH</option>
-        <option>NON-TECH</option>
+        <option>PHOTO</option>
         <option>CODING</option>
-        <option>MANAGEMENT</option>
+        <option>POSTER</option>
         <option>ROBOTICS</option>
+        <option>DANCE</option>
+        <option>MUSIC</option>
+        <option>ARTS</option>
+        <option>WELFARE</option>
         <option>QUIZ</option>
-        <option>TREASURE-HUNT</option>
+        <option>ONLINE</option>
+        <option>DRAMATICS</option>
+        <option>FASHION</option>
+        <option>BOLLYWOOD</option>
+        <option>CLASSIC</option>
+        <option>EDM</option>
+        <option>COMEDY</option>
+        <option>GUEST</option>
+        <option>GAME</option>
+        <option>WORK</option>
+        <option>ALREADY_COMEDY</option>
+        <option>CULTURAL</option>
+        </select>
         </select>
     </div>
 
@@ -104,6 +117,10 @@
     <div class="form-group">
         <label for="event_organizer">Event Venue</label>
         <input type="text" class="form-control" id="event_venue" name="event_venue" placeholder="Venue of the event"  value="<?php echo $event['ev_venue']?>" >
+    </div>
+    <div class="form-group">
+        <label for="event_organizer">Link for Gdoc registration</label>
+        <input type="text" class="form-control" id="register_url" name="register_url" placeholder="Link for Gdoc registration" value="<?php echo $event['register_url']?>" >
     </div>
 
     <div class="form-group">

@@ -998,6 +998,7 @@ function addEvent(){
 		$map_url = escape($_POST["map_url"]);
 		$team_members = escape($_POST["team_members"]);
 		$ev_prize = escape($_POST['ev_prize']);
+		$register_url=escape($_POST['register_url']);
 
 		if($team_event=="False"){
 			$team_event=0;
@@ -1023,8 +1024,8 @@ function addEvent(){
 			$poster_url ="https://anwesha.info/backend/admin".substr($target_poster_file, 1);
 			$rulebook_url = "https://anwesha.info/backend/admin".substr($target_rulebook_file, 1);
 
-			$sql = "INSERT INTO events(ev_id, ev_category, ev_name, ev_description, ev_organiser, ev_club, ev_org_phone, ev_poster_url, ev_rule_book_url, ev_date, ev_start_time, ev_end_time,ev_venue, ev_amount,is_team_event,map_url,team_members,ev_prize)";
-			$sql .=" VALUES('$event_id','$event_category','$event_name','$event_desc','$event_organizer','$ev_club','$event_org_phone','$poster_url','$rulebook_url','$event_date','$event_start_time','$event_end_time', '$ev_venue',$ev_amount,$team_event,'$map_url','$team_members','$ev_prize')";
+			$sql = "INSERT INTO events(ev_id, ev_category, ev_name, ev_description, ev_organiser, ev_club, ev_org_phone, ev_poster_url, ev_rule_book_url, ev_date, ev_start_time, ev_end_time,ev_venue, ev_amount,is_team_event,map_url,team_members,ev_prize,register_url)";
+			$sql .=" VALUES('$event_id','$event_category','$event_name','$event_desc','$event_organizer','$ev_club','$event_org_phone','$poster_url','$rulebook_url','$event_date','$event_start_time','$event_end_time', '$ev_venue',$ev_amount,$team_event,'$map_url','$team_members','$ev_prize','$register_url')";
 
 			$result = query($sql);
 			
@@ -1075,7 +1076,7 @@ function getEvent($eventid){
 		return false;
 	}
 
-	$sql="SELECT ev_category, ev_name, ev_description, ev_organiser, ev_club, ev_org_phone, ev_poster_url, ev_rule_book_url, ev_date, ev_start_time, ev_end_time, ev_venue, ev_amount,is_team_event, map_url, team_members, ev_prize FROM events WHERE ev_id='$eventid'";
+	$sql="SELECT ev_category, ev_name, ev_description, ev_organiser, ev_club, ev_org_phone, ev_poster_url, ev_rule_book_url,register_url, ev_date, ev_start_time, ev_end_time, ev_venue, ev_amount,is_team_event, map_url, team_members, ev_prize FROM events WHERE ev_id='$eventid'";
 	$result=query($sql);
 
 
@@ -1120,6 +1121,7 @@ function updateEvent(){
 		$event_venue=escape($_POST['event_venue']);
 		$team_members=escape($_POST['team_members']);
 		$ev_prize=escape($_POST['ev_prize']);
+		$register_url=escape($_POST['register_url']);
 
 		if($team_event=="False"){
 			$team_event=0;
@@ -1127,7 +1129,7 @@ function updateEvent(){
 			$team_event=1;
 		}
 
-		$sql = "UPDATE events SET ev_name='$event_name', ev_category='$event_category', ev_description='$event_desc', ev_organiser='$event_organizer', ev_club='$ev_club', ev_org_phone='$event_org_phone', ev_date='$event_date', ev_start_time='$event_start_time', ev_end_time='$event_end_time', is_team_event='$team_event', ev_amount='$event_amount', ev_venue='$event_venue', map_url='$map_url', team_members='$team_members', ev_prize='$ev_prize' WHERE ev_id='$eventid'";
+		$sql = "UPDATE events SET ev_name='$event_name', ev_category='$event_category', ev_description='$event_desc',register_url='$register_url', ev_organiser='$event_organizer', ev_club='$ev_club', ev_org_phone='$event_org_phone', ev_date='$event_date', ev_start_time='$event_start_time', ev_end_time='$event_end_time', is_team_event='$team_event', ev_amount='$event_amount', ev_venue='$event_venue', map_url='$map_url', team_members='$team_members', ev_prize='$ev_prize' WHERE ev_id='$eventid'";
 
 		$result = query($sql);
 		confirm($result);
