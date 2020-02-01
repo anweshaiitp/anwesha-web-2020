@@ -6,7 +6,7 @@
 		header("location:../404.html");
 	}
  $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
-$service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
+//$service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
   $curl_response = curl_exec($curl);
@@ -31,13 +31,17 @@ $service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
   $event_amount=$event['ev_amount'];
   $amount_paid;
   $heading='';
+  $isComp=0;
   $param=$event['ev_category'];
 	if($param=="technical"){
 		$heading="TECHNICAL";
+		$isComp=1;
 	}elseif($param=="cultural"){
 		$heading="CULTURAL";
+		$isComp=1;
 	}elseif($param=="awelfare"){
 		$heading="ARTS & WELFARE";
+		$isComp=1;
 	}elseif($param=="pronite"){
 		$heading="PRONITES";
 	}elseif($param=="proshow"){
@@ -185,7 +189,7 @@ $service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
 					<div class="col-xl-6 col-lg-6 col-md-12">
 						<div class="single-project-slider">
 							<div class="portfolio-screenshot">
-								<img src="<?php echo $e['ev_poster_url']?>" alt="">
+								<img src="<?php echo $event['ev_poster_url']?>" alt="">
 							</div>
 						</div>
 					</div>
@@ -223,8 +227,8 @@ $service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
 				<div class="project-technology form-check form-check-inline" style="background-color:#121216">
 					<!-- <h3>Technology we used</h3> -->
 					<ul>
-						<li  style="background-color:#121216"><button class="btn btn-info form-check-input" href="<?php echo $event['ev_rule_book_url'] ?>">Rulebook</button></li>
-						<li  style="background-color:#121216"><button class="btn btn-info form-check-input" href="<?php echo $event['map_url'] ?>">Register</button></li>
+						<li  style="background-color:#121216"><button class="btn btn-info form-check-input"><a href="<?php echo $event['ev_rule_book_url']?>" style="color:white">Rulebook</a></button></li>
+						<?php if($isComp){ ?> <li  style="background-color:#121216"><button class="btn btn-info form-check-input"><a href="<?php echo $event['register_url'] ?>" style="color:white">Register</a></button></li><?php } ?>
 					</ul>
 				</div>
 				<!--single project info-->

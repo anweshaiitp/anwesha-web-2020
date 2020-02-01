@@ -29,7 +29,7 @@ if($param=="technical"){
 	$heading="PRE-ANWEHSA EVENTS";
 }
  $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
- $service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
+ //$service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
   $curl_response = curl_exec($curl);
@@ -47,7 +47,6 @@ if($param=="technical"){
   	array_push($events,$d);
   	}
   }
-
   $filters="";
   if($param=="technical"){
     $filters='
@@ -262,7 +261,7 @@ if($param=="technical"){
 							<div class="portfolio-image">
 								<img src="<?php echo $e['ev_poster_url']?>" alt="">
 								<div class="portfolio-content">
-									<p><?php echo $e['ev_description']?></p>
+									<p><?php   if($param=="cultural"&&strlen($e['ev_description'])>40){ echo substr($e['ev_description'],0,39);?>...<?php }else echo $e['ev_description'] ?></p>
 									<p><a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">view details</a></p>
 								</div>
 							</div>

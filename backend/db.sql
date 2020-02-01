@@ -206,6 +206,7 @@ CREATE TABLE `events` (
   `ev_org_phone` varchar(100) NOT NULL,
   `ev_poster_url` varchar(255) NOT NULL,
   `ev_rule_book_url` varchar(255) NOT NULL,
+  `register_url` varchar(255) NOT NULL,
   `ev_date` varchar(50) NOT NULL,
   `ev_start_time` varchar(100) NOT NULL,
   `ev_end_time` varchar(100) NOT NULL,
