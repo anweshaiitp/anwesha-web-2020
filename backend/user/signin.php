@@ -34,10 +34,12 @@ if (logged_in()) {
           <input class="not-radio" type="password" id="password" name="password" required="required" placeholder="Password" /><br/>
           <!-- <a href="#" color>Forgot your password?</a> -->
           <button type="submit" name="login" id="login" value="miss_u_a_lot_atreyee">Sign In</button><br>
+          <a href="./registeruser.php"><span class="not-radio btn" >Register for NJATH</span></a>
           <a href="./resend_alink.php"><span class="btn">Resend Activation Link</span></a><br>
           <a href="./password.php"><span class="btn">Forgot Password</span></a><br>
           <p style="margin:0;">Don't have an account?</p>
           <p style="margin:0;"><a href="./casignup.php" style="color: #fff;">SignUp now !!</a></p>
+
         </form>
       </div>
       <!-- <div class="back">

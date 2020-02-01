@@ -540,7 +540,8 @@ function validate_user_login(){
 				}
 				if (isset($_GET['fromNjath'])){
 					// redirect("../../njath/index.php");
-					header("Location: https://anwesha.info/njath/");
+					// redirect("../../../njath_anwesha/");
+					header("Location: https://anwesha.info/njath_test/");
 					return 0;
 				}
 				redirect("profile.php");
