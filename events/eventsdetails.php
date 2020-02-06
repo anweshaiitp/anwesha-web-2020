@@ -227,8 +227,8 @@
 				<div class="project-technology form-check form-check-inline" style="background-color:#121216">
 					<!-- <h3>Technology we used</h3> -->
 					<ul>
-						<li  style="background-color:#121216"><button class="btn btn-info form-check-input"><a href="<?php echo $event['ev_rule_book_url']?>" style="color:white">Rulebook</a></button></li>
-						<?php if($isComp){ ?> <li  style="background-color:#121216"><button class="btn btn-info form-check-input"><a href="<?php echo $event['register_url'] ?>" style="color:white">Register</a></button></li><?php } ?>
+						
+						<?php if($isComp){ ?><li  style="background-color:#121216"><button class="btn btn-info form-check-input"><a href="<?php echo $event['ev_rule_book_url']?>" style="color:white">Rulebook</a></button></li><li  style="background-color:#121216"><button class="btn btn-info form-check-input"><a href="<?php echo $event['register_url'] ?>" style="color:white">Register</a></button></li><?php } ?>
 					</ul>
 				</div>
 				<!--single project info-->
