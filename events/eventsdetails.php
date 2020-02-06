@@ -6,7 +6,7 @@
 		header("location:../404.html");
 	}
  $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
-//$service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
+ $service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
   $curl_response = curl_exec($curl);

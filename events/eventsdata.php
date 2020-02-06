@@ -29,7 +29,7 @@ if($param=="technical"){
 	$heading="PRE-ANWEHSA EVENTS";
 }
  $service_url = 'http://localhost/anwesha-web-2020/backend/admin/functions/events_api.php';
- //$service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
+ $service_url = 'https://anwesha.info/backend/admin/functions/events_api.php';
   $curl = curl_init($service_url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
   $curl_response = curl_exec($curl);
@@ -51,8 +51,6 @@ if($param=="technical"){
   if($param=="technical"){
     $filters='
       <li><a href="#" data-filter=".filter-TECH">TECH</a></li>
-      <li><a href="#" data-filter=".filter-PHOTO">PHOTOGRAPHY</a></li>
-      <li><a href="#" data-filter=".filter-CODING">CODING</a></li>
       <li><a href="#" data-filter=".filter-QUIZ">QUIZ</a></li>
 	  <li><a href="#" data-filter=".filter-ROBOTICS">ROBOTICS</a></li>
 	  <li><a href="#" data-filter=".filter-POSTER">POSTER MAKING</a></li>
@@ -75,7 +73,7 @@ if($param=="technical"){
   }elseif($param=="pronite"){
 	$filters='
 	 <li><a href="#" data-filter=".filter-BOLLYWOOD">BOLLYWOOD NIGHT</a></li>
-     <li><a href="#" data-filter=".filter-CLASSIC">CLASSICAL NIGHT</a></li>
+     <li><a href="#" data-filter=".filter-CLASSIC">CULTURAL NIGHT</a></li>
 	 <li><a href="#" data-filter=".filter-EDM">EDM NIGHT</a></li>
 	 <li><a href="#" data-filter=".filter-COMEDY">COMEDY NIGHT</a></li>
 	';
