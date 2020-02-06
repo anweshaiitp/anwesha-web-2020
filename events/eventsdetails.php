@@ -249,7 +249,7 @@
 				</div>
 				<div class="col-xl-4 col-lg-4 col-md-4 col-sm-5">
 					<div class="callto-action-btn">
-						<a href="#">contact us</a>
+						<a href="../contact.html">contact us</a>
 					</div>
 				</div>
 			</div>
