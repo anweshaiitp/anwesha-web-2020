@@ -76,6 +76,7 @@ if($param=="technical"){
      <li><a href="#" data-filter=".filter-CLASSIC">CULTURAL NIGHT</a></li>
 	 <li><a href="#" data-filter=".filter-EDM">EDM NIGHT</a></li>
 	 <li><a href="#" data-filter=".filter-COMEDY">COMEDY NIGHT</a></li>
+	 <li><a href="#" data-filter=".filter-RAP">RAP</a></li>
 	';
   }elseif($param=="proshow"){
 	$filters='
@@ -259,7 +260,7 @@ if($param=="technical"){
 							<div class="portfolio-image">
 								<img src="<?php echo $e['ev_poster_url']?>" alt="">
 								<div class="portfolio-content">
-									<p><?php   if($param=="cultural"&&strlen($e['ev_description'])>40){ echo substr($e['ev_description'],0,39);?>...<?php }else echo $e['ev_description'] ?></p>
+									<p><?php   if(($param=="cultural"||$e['ev_id']==6258)&&strlen($e['ev_description'])>140){ echo substr($e['ev_description'],0,139);?>...<?php }else echo $e['ev_description'] ?></p>
 									<p><a href="./eventsdetails.php?id=<?php echo $e['ev_id']?>">view details</a></p>
 								</div>
 							</div>
